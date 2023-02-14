@@ -1,33 +1,82 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.INITIAL_USER_BASIC_INFO = exports.INITIAL_USER = exports.INITIAL_PARENT = exports.INITIAL_CHILD = exports.UserType = exports.Group = exports.Schedule = exports.Role = void 0;
-const ipcam_1 = require("./ipcam");
-var Role;
-(function (Role) {
-    Role["PARENT"] = "PARENT";
-    Role["TEACHER"] = "TEACHER";
-    Role["ADMIN"] = "ADMIN";
-})(Role = exports.Role || (exports.Role = {}));
-var Schedule;
-(function (Schedule) {
-    Schedule["LONG"] = "LONG";
-    Schedule["SHORT"] = "SHORT";
-    Schedule["SHORT_WITH_LUNCH"] = "SHORT_WITH_LUNCH";
-})(Schedule = exports.Schedule || (exports.Schedule = {}));
-var Group;
-(function (Group) {
-    Group["BEBE"] = "BEBE";
-    Group["MICA"] = "MICA";
-    Group["MIJLOCIE"] = "MIJLOCIE";
-    Group["MARE"] = "MARE";
-})(Group = exports.Group || (exports.Group = {}));
-var UserType;
-(function (UserType) {
-    UserType["ALL"] = "ALL";
-    UserType["ACTIVE"] = "ACTIVE";
-    UserType["DISABLED"] = "DISABLED";
-})(UserType = exports.UserType || (exports.UserType = {}));
-exports.INITIAL_CHILD = {
+import { IpcamId } from './ipcam'
+import { Metadata } from './metadata'
+interface Human {
+    firstName: string
+    lastName: string
+}
+
+export interface Adult extends Human, Metadata {
+    id: string
+    phoneNumber: string
+    address: string
+}
+
+export interface Child extends Human, Metadata {
+    uid: string
+    id: string
+    cnp: string
+    placeOfBirth: string
+    group: Group
+    birthday: string
+    schedule: Schedule
+}
+
+export interface User extends Metadata {
+    uid: string
+    customerId: string | null
+    email: string
+    displayName: string
+    avatar: string | null
+    password: string
+    role: Role
+    parents: Adult[]
+    emergencyContacts: Adult[]
+    children: Child[]
+    groups: Group[]
+    tokens: string[]
+    ipcams: IpcamId[]
+    disabled: boolean
+    canComment: boolean
+}
+
+export enum Role {
+    PARENT = 'PARENT',
+    TEACHER = 'TEACHER',
+    ADMIN = 'ADMIN',
+}
+
+export enum Schedule {
+    LONG = 'LONG',
+    SHORT = 'SHORT',
+    SHORT_WITH_LUNCH = 'SHORT_WITH_LUNCH',
+}
+
+export enum Group {
+    BEBE = 'BEBE',
+    MICA = 'MICA',
+    MIJLOCIE = 'MIJLOCIE',
+    MARE = 'MARE',
+}
+
+export enum UserType {
+    ALL = 'ALL',
+    ACTIVE = 'ACTIVE',
+    DISABLED = 'DISABLED',
+}
+
+export interface DecodedUser {
+    uid: string
+    email: string
+    role: Role
+    groups: Group[]
+}
+
+export interface UserAvatar {
+    uid: string
+    url: string
+}
+
+export const INITIAL_CHILD: Child = {
     uid: '',
     id: '',
     cnp: '',
@@ -39,8 +88,9 @@ exports.INITIAL_CHILD = {
     lastName: '',
     createdAt: '',
     updatedAt: '',
-};
-exports.INITIAL_PARENT = {
+}
+
+export const INITIAL_PARENT: Adult = {
     id: '',
     phoneNumber: '',
     address: '',
@@ -48,11 +98,13 @@ exports.INITIAL_PARENT = {
     lastName: '',
     createdAt: '',
     updatedAt: '',
-};
-exports.INITIAL_USER = {
+}
+
+export const INITIAL_USER: User = {
     parents: [],
     children: [],
     emergencyContacts: [],
+    customerId: null,
     uid: '',
     displayName: '',
     avatar: null,
@@ -66,28 +118,32 @@ exports.INITIAL_USER = {
     canComment: false,
     createdAt: '',
     updatedAt: '',
-};
-exports.INITIAL_USER_BASIC_INFO = {
+}
+
+export const INITIAL_USER_BASIC_INFO: User = {
     parents: [],
     children: [],
     emergencyContacts: [],
     uid: '',
     displayName: '',
     avatar: null,
-    email: 'r3dm4n@me.com',
+    customerId: null,
+    email: '',
     password: '',
     role: Role.PARENT,
     groups: [Group.BEBE],
     tokens: [],
-    ipcams: [ipcam_1.IpcamId.BEBE, ipcam_1.IpcamId.MICA],
+    ipcams: [IpcamId.BEBE, IpcamId.MICA],
     disabled: false,
     canComment: false,
     createdAt: '',
     updatedAt: '',
-};
+}
+
 // export const createUser = (oldUser: OldUser): User => {
 //     const lastName = oldUser.displayName.split(' ')?.[0] ?? 'lastName'
 //     const firstName = oldUser.displayName.split(' ')?.[1] ?? 'firstName'
+
 //     const newUser: User = {
 //         parents: [
 //             {
