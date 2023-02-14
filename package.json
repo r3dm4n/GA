@@ -1,0 +1,27 @@
+{
+  "name": "ga",
+  "version": "1.0.0",
+  "description": "ga-types",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3dm4n/GA.git"
+  },
+  "author": "Spaceapps",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r3dm4n/GA/issues"
+  },
+  "homepage": "https://github.com/r3dm4n/GA#readme",
+  "keywords": [],
+  "devDependencies": {
+    "@types/typescript": "^2.0.0",
+    "@types/uuid": "^9.0.0",
+    "typescript": "^4.9.5"
+  }
+}
