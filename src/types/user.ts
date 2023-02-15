@@ -67,6 +67,7 @@ export enum UserType {
 export interface DecodedUser {
     uid: string
     email: string
+    createdAt: string
     role: Role
     groups: Group[]
 }
