@@ -38,10 +38,10 @@ export interface Invoice extends Metadata {
     total: number
     status: InvoiceStatus
     payedAt: string | undefined
-    timestamp: Date
-    dueAt: string
     receiptUrl: string | null
     stripeId: string | null
+    timestamp: Date
+    dueAt: Date | null
 }
 
 export interface InvoiceRes {
@@ -66,7 +66,7 @@ export const INITIAL_INVOICE: Invoice = {
     timestamp: new Date(),
     createdAt: '',
     updatedAt: '',
-    dueAt: '',
+    dueAt: null,
     receiptUrl: null,
     stripeId: null,
 }
