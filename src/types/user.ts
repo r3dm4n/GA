@@ -136,7 +136,7 @@ export const INITIAL_USER_BASIC_INFO: User = {
     tokens: [],
     ipcams: [IpcamId.BEBE, IpcamId.MICA],
     disabled: false,
-    canComment: false,
+    canComment: true,
     createdAt: '',
     updatedAt: '',
 }
