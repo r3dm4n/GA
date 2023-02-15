@@ -108,7 +108,7 @@ export const INITIAL_USER: User = {
     uid: '',
     displayName: '',
     avatar: null,
-    email: 'spaceapps.dev@gmail.com',
+    email: '',
     password: '',
     role: Role.PARENT,
     groups: [Group.BEBE],

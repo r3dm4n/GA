@@ -1,10 +1,13 @@
 export * from './lib/helpers'
+export * from './types/config'
 export * from './types/invoice'
 export * from './types/ipcam'
 export * from './types/menu'
 export * from './types/metadata'
 export * from './types/post'
 export * from './types/presence'
+export * from './types/pushNotification'
 export * from './types/tab'
 export * from './types/tax'
 export * from './types/user'
+
