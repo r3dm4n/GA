@@ -1,13 +1,13 @@
 {
   "name": "gradi-types",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "ga-types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepublish": "tsc",
-    "publish": "tsc && npm publush"
+    "publish": "git add . && git commit -m 'updates' && tsc && npm publush"
   },
   "repository": {
     "type": "git",
