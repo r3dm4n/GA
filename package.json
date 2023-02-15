@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "prepublish": "tsc",
-    "publish": "git add . && git commit -m 'updates' && tsc && npm publush"
+    "publish": "git add . && git commit -m 'updates' && git push && tsc && npm publush"
   },
   "repository": {
     "type": "git",
