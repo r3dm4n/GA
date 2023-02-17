@@ -41,7 +41,7 @@ export interface Invoice extends Metadata {
     receiptUrl: string | null
     stripeId: string | null
     timestamp: Date
-    dueAt: Date | null
+    dueAt: string | null
 }
 
 export interface InvoiceRes {
