@@ -16,7 +16,7 @@ export const INITIAL_PRESENCE: Presence = {
     id: undefined,
     childId: '',
     uid: '',
-    isPresent: true,
+    isPresent: false,
     plates: [
         { percent: 0, type: 'breakfast' },
         { percent: 0, type: 'lunch' },
