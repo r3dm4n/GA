@@ -116,30 +116,11 @@ export const INITIAL_USER: User = {
     tokens: [],
     ipcams: [],
     disabled: false,
-    canComment: false,
-    createdAt: '',
-    updatedAt: '',
-}
-
-export const INITIAL_USER_BASIC_INFO: User = {
-    parents: [],
-    children: [],
-    emergencyContacts: [],
-    uid: '',
-    displayName: '',
-    avatar: null,
-    customerId: null,
-    email: '',
-    password: '',
-    role: Role.PARENT,
-    groups: [Group.BEBE],
-    tokens: [],
-    ipcams: [IpcamId.BEBE, IpcamId.MICA],
-    disabled: false,
     canComment: true,
     createdAt: '',
     updatedAt: '',
 }
+
 
 // export const createUser = (oldUser: OldUser): User => {
 //     const lastName = oldUser.displayName.split(' ')?.[0] ?? 'lastName'
