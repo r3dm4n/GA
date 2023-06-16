@@ -16,4 +16,5 @@ export interface GroupConfig {
 export interface Config {
     payments: Payments
     tax: Tax
+    groupConfig: GroupConfig
 }
