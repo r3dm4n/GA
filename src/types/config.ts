@@ -4,7 +4,7 @@ export interface Payments {
     enabled: boolean
 }
 
-interface GroupNames {
+export interface GroupNames {
     name: string
     nickname: string
 }
