@@ -32,6 +32,8 @@ export interface Post extends Metadata {
     commentsOn: boolean
     liveAt: string | null
     sendNotification: boolean
+    viewCount: number
+
 }
 
 export const INITIAL_POST: Post = {
@@ -46,6 +48,7 @@ export const INITIAL_POST: Post = {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     numberOfComments: 0,
+    viewCount: 0,
     comments: [],
     commentsOn: true,
     liveAt: null,
