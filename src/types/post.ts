@@ -27,6 +27,7 @@ export interface Post extends Metadata {
     author: string
     numberOfLikes: number
     likedBy: string[]
+    bookmarkedBy: string[]
     numberOfComments: number
     comments: Comment[]
     commentsOn: boolean
@@ -45,6 +46,7 @@ export const INITIAL_POST: Post = {
     author: '',
     numberOfLikes: 0,
     likedBy: [],
+    bookmarkedBy: [],
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     numberOfComments: 0,
