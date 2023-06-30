@@ -37,6 +37,7 @@ export interface User extends Metadata {
     ipcams: IpcamId[]
     disabled: boolean
     canComment: boolean
+    bookmarks: []
 }
 
 export enum Role {
@@ -119,6 +120,7 @@ export const INITIAL_USER: User = {
     canComment: true,
     createdAt: '',
     updatedAt: '',
+    bookmarks: []
 }
 
 
