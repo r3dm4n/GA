@@ -37,7 +37,7 @@ export interface User extends Metadata {
     ipcams: IpcamId[]
     disabled: boolean
     canComment: boolean
-    bookmarks: []
+    bookmarks: string[]
 }
 
 export enum Role {
