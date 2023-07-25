@@ -39,6 +39,7 @@ export interface User extends Metadata {
     ipcams: IpcamId[]
     disabled: boolean
     canComment: boolean
+    bookmarks: string[]
 }
 
 export enum Role {
@@ -121,61 +122,5 @@ export const INITIAL_USER: User = {
     canComment: true,
     createdAt: '',
     updatedAt: '',
+    bookmarks: []
 }
-
-
-// export const createUser = (oldUser: OldUser): User => {
-//     const lastName = oldUser.displayName.split(' ')?.[0] ?? 'lastName'
-//     const firstName = oldUser.displayName.split(' ')?.[1] ?? 'firstName'
-
-//     const newUser: User = {
-//         parents: [
-//             {
-//                 id: '0',
-//                 phoneNumber: oldUser.phone,
-//                 createdAt: oldUser.created,
-//                 firstName: '',
-//                 lastName: lastName,
-//                 address: '',
-//                 updatedAt: new Date().toISOString(),
-//             },
-//         ],
-//         children: [
-//             {
-//                 uid: oldUser.uid,
-//                 id: uuid(),
-//                 cnp: '',
-//                 placeOfBirth: '',
-//                 group:
-//                     oldUser.groups.length > 0
-//                         ? (oldUser.groups[0].toUpperCase() as Group)
-//                         : Group.BEBE,
-//                 birthday: oldUser.birthday,
-//                 createdAt: oldUser.created,
-//                 updatedAt: new Date().toISOString(),
-//                 firstName,
-//                 lastName,
-//                 schedule: oldUser.schedule
-//                     ? (oldUser.schedule
-//                           .replace('scurt', Schedule.SHORT_WITH_LUNCH)
-//                           .replace('prelungit', Schedule.LONG) as Schedule)
-//                     : Schedule.LONG,
-//             },
-//         ],
-//         emergencyContacts: [],
-//         uid: oldUser.uid ?? '',
-//         displayName: oldUser.displayName,
-//         avatar: null,
-//         email: oldUser.email,
-//         password: oldUser.password,
-//         role: Role.PARENT,
-//         groups: oldUser.groups.map((g) => g.toUpperCase() as Group),
-//         ipcams: [],
-//         tokens: oldUser.tokens,
-//         disabled: oldUser.disabled,
-//         canComment: true,
-//         createdAt: oldUser.created,
-//         updatedAt: new Date().toISOString(),
-//     }
-//     return newUser
-// }
