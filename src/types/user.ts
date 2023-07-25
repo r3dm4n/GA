@@ -9,6 +9,8 @@ export interface Adult extends Human, Metadata {
     id: string
     phoneNumber: string
     address: string
+    nationality?: string
+    citizenship?: string
 }
 
 export interface Child extends Human, Metadata {
