@@ -11,6 +11,7 @@ export interface Adult extends Human, Metadata {
     address: string
     nationality?: string
     citizenship?: string
+    signature?: string
 }
 
 export interface Child extends Human, Metadata {
