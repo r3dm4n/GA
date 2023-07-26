@@ -22,7 +22,7 @@ export interface Comment extends Metadata {
 
 export interface Post extends Metadata {
   id?: string
-  groups: Group[]
+  groups: string[]
   body: string
   attachments: Attachment[]
   reviewed: boolean

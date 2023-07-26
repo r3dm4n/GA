@@ -19,7 +19,7 @@ export interface Child extends Human, Metadata {
     id: string
     cnp: string
     placeOfBirth: string
-    group: Group
+    group: string
     birthday: string
     schedule: Schedule
 }
@@ -35,7 +35,7 @@ export interface User extends Metadata {
     parents: Adult[]
     emergencyContacts: Adult[]
     children: Child[]
-    groups: Group[]
+    groups: string[]
     tokens: string[]
     ipcams: IpcamId[]
     disabled: boolean
@@ -55,12 +55,12 @@ export enum Schedule {
     SHORT_WITH_LUNCH = 'SHORT_WITH_LUNCH',
 }
 
-export enum Group {
-    BEBE = 'BEBE',
-    MICA = 'MICA',
-    MIJLOCIE = 'MIJLOCIE',
-    MARE = 'MARE',
-}
+// export enum Group {
+//     BEBE = 'BEBE',
+//     MICA = 'MICA',
+//     MIJLOCIE = 'MIJLOCIE',
+//     MARE = 'MARE',
+// }
 
 export enum UserType {
     ALL = 'ALL',
@@ -68,12 +68,12 @@ export enum UserType {
     DISABLED = 'DISABLED',
 }
 
-export interface DecodedUser {
+export interface DecodedUser  {
     uid: string
     email: string
     createdAt: string
     role: Role
-    groups: Group[]
+    groups: string[]
 }
 
 export interface UserAvatar {
@@ -86,7 +86,7 @@ export const INITIAL_CHILD: Child = {
     id: '',
     cnp: '',
     placeOfBirth: '',
-    group: Group.BEBE,
+    group: 'PUBLIC',
     birthday: '',
     schedule: Schedule.LONG,
     firstName: '',
