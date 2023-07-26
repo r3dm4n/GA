@@ -4,19 +4,11 @@ export interface Payments {
     enabled: boolean
 }
 
-export interface GroupNames {
-    name: string
-    nickname: string
-}
-
-export interface GroupConfig {
-    names: GroupNames[]
-}
 
 export interface Config {
+    groups: Group[]
     payments: Payments
-    tax: Tax
-    groupConfig: GroupConfig
+    tax?: Tax
 }
 
 export interface Group  {
