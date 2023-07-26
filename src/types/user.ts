@@ -103,6 +103,9 @@ export const INITIAL_PARENT: Adult = {
     lastName: '',
     createdAt: '',
     updatedAt: '',
+    signature: '',
+    citizenship: '',
+    nationality: '',
 }
 
 export const INITIAL_USER: User = {
