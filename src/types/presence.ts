@@ -1,5 +1,5 @@
 import { Plate } from './menu'
-import { Child, Group, User } from './user'
+import { Child,  User } from './user'
 
 export interface Presence {
     id: string | undefined
@@ -9,7 +9,7 @@ export interface Presence {
     timestamp: Date
     plates: Plate[]
     isPresent: boolean
-    group: Group
+    group: string
 }
 
 export const INITIAL_PRESENCE: Presence = {
@@ -24,7 +24,7 @@ export const INITIAL_PRESENCE: Presence = {
     ],
     date: new Date().toISOString().slice(0, 10),
     timestamp: new Date(),
-    group: Group.BEBE
+    group: 'PUBLIC'
 }
 
 export interface PresenceState {

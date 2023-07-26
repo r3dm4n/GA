@@ -1,5 +1,5 @@
-import {Metadata} from './metadata'
-import {Group} from './user'
+import { Metadata } from './metadata'
+
 
 export interface Attachment {
   fileName: string

@@ -1,7 +1,7 @@
-import { Group, Schedule } from './user'
+import { Schedule } from './user'
 
 export interface Tier {
-    group: Group
+    group: string
     schedule: Schedule
     meal: number
     tuition: number

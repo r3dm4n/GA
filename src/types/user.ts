@@ -119,7 +119,7 @@ export const INITIAL_USER: User = {
     email: '',
     password: '',
     role: Role.PARENT,
-    groups: [Group.BEBE],
+    groups: ['PUBLIC'],
     tokens: [],
     ipcams: [],
     disabled: false,
