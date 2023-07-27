@@ -1,6 +1,6 @@
 export * from './lib/helpers'
 export * from './types/config'
-export * from './types/config'
+export * from './types/group'
 export * from './types/invoice'
 export * from './types/ipcam'
 export * from './types/menu'
