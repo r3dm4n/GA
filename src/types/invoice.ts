@@ -95,7 +95,7 @@ export interface PaymentIntentResponse {
 const ABSENCES = 0
 export const generateInvoices = (user: User, tax: Tax): Invoice[] => {
     return user.children.map((ch) => {
-        const tier = tax.tiers.find((t) => t.group === ch.group && t.schedule === ch.schedule)
+        const tier = tax.tiers.find((t) => t.groupId === ch.groupId && t.schedule === ch.schedule)
         if (!tier) {
             return {
                 ...INITIAL_INVOICE,

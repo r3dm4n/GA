@@ -9,7 +9,7 @@ export interface Presence {
     timestamp: Date
     plates: Plate[]
     isPresent: boolean
-    group: string
+    groupId: string
 }
 
 export const INITIAL_PRESENCE: Presence = {
@@ -24,7 +24,7 @@ export const INITIAL_PRESENCE: Presence = {
     ],
     date: new Date().toISOString().slice(0, 10),
     timestamp: new Date(),
-    group: 'PUBLIC'
+    groupId: 'PUBLIC'
 }
 
 export interface PresenceState {

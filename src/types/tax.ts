@@ -1,7 +1,7 @@
 import { Schedule } from './user'
 
 export interface Tier {
-    group: string
+    groupId: string
     schedule: Schedule
     meal: number
     tuition: number

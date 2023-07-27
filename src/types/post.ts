@@ -22,7 +22,7 @@ export interface Comment extends Metadata {
 
 export interface Post extends Metadata {
   id?: string
-  groups: string[]
+  groupIds: string[]
   body: string
   attachments: Attachment[]
   reviewed: boolean
@@ -39,7 +39,7 @@ export interface Post extends Metadata {
 
 export const INITIAL_POST: Post = {
   id: undefined,
-  groups: [],
+  groupIds: [],
   body: '',
   attachments: [],
   reviewed: false,
