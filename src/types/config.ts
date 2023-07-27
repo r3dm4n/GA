@@ -1,3 +1,4 @@
+import { Group } from './group'
 import { Tax } from './tax'
 
 export interface Payments {
@@ -11,10 +12,3 @@ export interface Config {
     tax?: Tax
 }
 
-export interface Group  {
-    id: string
-    name: string
-    profileUrl: string
-    backgroundUrl: string
-    teacherId: string
-}
