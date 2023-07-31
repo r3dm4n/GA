@@ -29,12 +29,12 @@ export interface Post extends Metadata {
   author: string
   numberOfLikes: number
   likedBy: string[]
-  numberOfComments: number
   comments: Comment[]
   commentsOn: boolean
   liveAt: string | null
   sendNotification: boolean
-  viewCount: number
+  numberOfComments: number
+  numberOfViews: number
 }
 
 export const INITIAL_POST: Post = {
@@ -49,7 +49,7 @@ export const INITIAL_POST: Post = {
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
   numberOfComments: 0,
-  viewCount: 0,
+  numberOfViews: 0,
   comments: [],
   commentsOn: true,
   liveAt: null,
