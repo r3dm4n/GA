@@ -27,9 +27,10 @@ export interface Post extends Metadata {
   attachments: Attachment[]
   reviewed: boolean
   author: string
-  numberOfLikes: number
   likedBy: string[]
   bookmarkedBy: string[]
+  numberOfLikes: number
+  numberOfBookmarks: number
   comments: Comment[]
   commentsOn: boolean
   liveAt: string | null
@@ -48,6 +49,7 @@ export const INITIAL_POST: Post = {
   numberOfLikes: 0,
   likedBy: [],
   bookmarkedBy: [],
+  numberOfBookmarks: 0,
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
   numberOfComments: 0,
