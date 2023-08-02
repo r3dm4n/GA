@@ -7,8 +7,8 @@ export enum IpcamId {
 
 export interface Ipcam {
     id: IpcamId
+    name: string
     live: boolean
     message: string
     url: string
 }
-//test
