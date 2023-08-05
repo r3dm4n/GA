@@ -1,5 +1,7 @@
+import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
+
 interface Human {
     firstName: string
     lastName: string
@@ -121,3 +123,40 @@ export const INITIAL_USER: User = {
     updatedAt: '',
     bookmarks: []
 }
+
+export const generateAdult = (): Adult => {
+    return {
+        ...INITIAL_PARENT,
+        id: generateUUID(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+    }
+}
+
+export const generateChild = (): Child => {
+    return {
+        ...INITIAL_CHILD,
+        id: generateUUID(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+    }
+}
+
+export const generateUser = (): User => {
+    return {
+        ...INITIAL_USER,
+        children: [
+            {
+                ...INITIAL_CHILD,
+                id: generateUUID(),
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+            },
+        ],
+        parents: [generateAdult(), generateAdult()],
+        emergencyContacts: [generateAdult()],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+    }
+}
+

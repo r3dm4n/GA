@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios'
 import { InvoiceStatus } from '../types/invoice'
 import { IpcamId } from '../types/ipcam'
 import { MealType } from '../types/menu'
@@ -139,3 +140,46 @@ export const sleep = async (time: number) => {
     return new Promise((resolve) => setTimeout(resolve, time))
 }
 export const EMPTY_AVATAR = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMApjZlivZ2eTJ91_6T3wMJbzzCN6tnWOBPg&usqp=CAU'
+
+export const userRoleToRomanain = (role: Role): string => {
+    switch (role) {
+        case Role.ADMIN:
+            return 'Administrator'
+        case Role.TEACHER:
+            return 'Educatoare'
+        default:
+        case Role.PARENT:
+            return 'Prescolar'
+    }
+}
+
+export const formatTimeAgoDisplay = (str: string): string => {
+    return str.replace('circa', '')
+}
+
+export const errorMessage = (error: unknown): string => {
+    return error instanceof AxiosError
+        ? error.response?.data?.message
+        : error instanceof Error
+        ? error.message
+        : 'A aparut o eroare'
+}
+
+
+export const generateUUID = (digits = 12) => {
+    let str = '0123456789abcdefghijklmnopqrstuvwxyz'
+    let uuid = []
+    for (let i = 0; i < digits; i++) {
+        uuid.push(str[Math.floor(Math.random() * str.length)])
+    }
+    return uuid.join('')
+}
+
+export const POST_LIMIT = 10
+export const POST_HEIGHT = 420
+export const POST_IMAGE_LIMIT = 4
+
+export const isValidEmail = (email: string) => {
+    const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    return regex.test(email)
+}
