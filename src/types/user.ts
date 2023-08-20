@@ -112,6 +112,7 @@ export const INITIAL_USER: User = {
     uid: '',
     displayName: '',
     avatar: null,
+    blurhash: null,
     email: '',
     password: '',
     role: Role.PARENT,
@@ -122,7 +123,7 @@ export const INITIAL_USER: User = {
     canComment: true,
     createdAt: '',
     updatedAt: '',
-    bookmarks: []
+    bookmarks: [],
 }
 
 export const generateAdult = (): Adult => {
