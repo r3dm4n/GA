@@ -32,6 +32,7 @@ export interface User extends Metadata {
     email: string
     displayName: string
     avatar: string | null
+    blurhash: string | null
     password: string
     role: Role
     parents: Adult[]
