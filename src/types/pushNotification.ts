@@ -7,7 +7,5 @@ export enum NotificationType {
 export interface PushNotification {
     title: string
     body?: string
-    type: NotificationType
     data?: any
-
 }
