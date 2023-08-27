@@ -1,5 +1,5 @@
 import { Plate } from './menu'
-import { Child,  User } from './user'
+import { Child, User } from './user'
 
 export interface Presence {
     id: string | undefined
@@ -7,6 +7,7 @@ export interface Presence {
     childId: string
     date: string
     timestamp: Date
+    sleep: number
     plates: Plate[]
     isPresent: boolean
     groupId: string
@@ -17,6 +18,7 @@ export const INITIAL_PRESENCE: Presence = {
     childId: '',
     uid: '',
     isPresent: false,
+    sleep: 0,
     plates: [
         { percent: 0, type: 'breakfast' },
         { percent: 0, type: 'lunch' },
