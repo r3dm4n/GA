@@ -1,6 +1,6 @@
 {
   "name": "gradi-types",
-  "version": "1.0.59",
+  "version": "1.0.60",
   "description": "ga-types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
