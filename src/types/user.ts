@@ -2,7 +2,7 @@ import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
 
-interface Human {
+export interface Human {
     firstName: string
     lastName: string
 }
