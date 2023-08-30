@@ -1,16 +1,8 @@
 import { Plate } from './menu'
 import { Child, User } from './user'
 
-export interface PresenceMetadata {
-    childId: string
-    isPresent: boolean
-    fullName: string
-    displayName: string
-    avatar: string
-}
-
 export interface Presence {
-    id: string | undefined
+    id: string | null
     uid: string
     childId: string
     date: string
@@ -19,13 +11,12 @@ export interface Presence {
     plates: Plate[]
     isPresent: boolean
     groupId: string
-    metadata?: PresenceMetadata
 }
 
 export const INITIAL_PRESENCE: Presence = {
-    id: undefined,
-    childId: '',
+    id: null,
     uid: '',
+    childId: '',
     isPresent: false,
     sleep: 0,
     plates: [
@@ -35,14 +26,7 @@ export const INITIAL_PRESENCE: Presence = {
     ],
     date: new Date().toISOString().slice(0, 10),
     timestamp: new Date(),
-    groupId: 'PUBLIC',
-    metadata: {
-        childId: '',
-         isPresent: false,
-          fullName: '',
-          displayName: '',
-          avatar: ''
-    }
+    groupId: 'PUBLIC'
 }
 
 export interface PresenceState {
