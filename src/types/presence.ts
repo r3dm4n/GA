@@ -12,9 +12,9 @@ export interface Presence {
     isPresent: boolean
     groupId: string
 
-    displayName?: string
-    avatar?: string
-    tokens?: string[]
+    displayName: string | null
+    avatar: string | null
+    tokens: string[]
 }
 
 export const INITIAL_PRESENCE: Presence = {
@@ -31,8 +31,10 @@ export const INITIAL_PRESENCE: Presence = {
     date: new Date().toISOString().slice(0, 10),
     timestamp: new Date(),
     groupId: 'PUBLIC',
-    displayName: undefined,
-    tokens: undefined,
+
+    displayName: null,
+    avatar: null,
+    tokens: [],
 }
 
 export interface PresenceState {
