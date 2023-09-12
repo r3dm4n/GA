@@ -17,6 +17,8 @@ export interface Adult extends Human, Metadata {
 }
 
 export interface Child extends Human, Metadata {
+    avatar: string | null
+    blurhash: string | null
     uid: string
     id: string
     cnp: string
@@ -31,8 +33,6 @@ export interface User extends Metadata {
     customerId: string | null
     email: string
     displayName: string
-    avatar: string | null
-    blurhash: string | null
     password: string
     role: Role
     parents: Adult[]
