@@ -78,6 +78,8 @@ export interface UserAvatar {
 }
 
 export const INITIAL_CHILD: Child = {
+    avatar: null,
+    blurhash: null,
     uid: '',
     id: '',
     cnp: '',
