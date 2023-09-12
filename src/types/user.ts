@@ -113,8 +113,6 @@ export const INITIAL_USER: User = {
     customerId: null,
     uid: '',
     displayName: '',
-    avatar: null,
-    blurhash: null,
     email: '',
     password: '',
     role: Role.PARENT,
