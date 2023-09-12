@@ -30,6 +30,8 @@ export interface Child extends Human, Metadata {
 
 export interface User extends Metadata {
     uid: string
+    avatar: string | null
+    blurhash: string | null
     customerId: string | null
     email: string
     displayName: string
@@ -72,10 +74,7 @@ export interface DecodedUser  {
     groupIds: string[]
 }
 
-export interface UserAvatar {
-    uid: string
-    url: string
-}
+
 
 export const INITIAL_CHILD: Child = {
     avatar: null,
@@ -107,6 +106,8 @@ export const INITIAL_PARENT: Adult = {
 }
 
 export const INITIAL_USER: User = {
+    avatar: null,
+    blurhash: null,
     parents: [],
     children: [],
     emergencyContacts: [],
