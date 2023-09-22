@@ -1,5 +1,3 @@
-import { Metadata } from './metadata'
-
 export type MealType = 'breakfast' | 'lunch' | 'snack'
 
 export interface Meal {
@@ -13,10 +11,11 @@ export interface Menu {
     meals: Meal[]
 }
 
-export interface Plate extends Metadata {
+export interface Plate {
     type: MealType
     percent: number
-
+    createdAt: string | null
+    updatedAt: string | null
 }
 
 export interface Eat {
