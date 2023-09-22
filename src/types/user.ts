@@ -74,8 +74,6 @@ export interface DecodedUser  {
     groupIds: string[]
 }
 
-
-
 export const INITIAL_CHILD: Child = {
     avatar: null,
     blurhash: null,

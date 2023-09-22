@@ -1,5 +1,5 @@
-import { Plate } from './menu'
-import { Child, User } from './user'
+import { Plate } from './src/types/menu'
+import { Child, User } from './src/types/user'
 
 export interface Presence {
     id: string | null
@@ -11,7 +11,6 @@ export interface Presence {
     plates: Plate[]
     isPresent: boolean
     groupId: string
-
     displayName?: string
     avatar?: string
     tokens?: string[]
@@ -24,9 +23,24 @@ export const INITIAL_PRESENCE: Presence = {
     isPresent: false,
     sleep: 0,
     plates: [
-        { percent: 0, type: 'breakfast' },
-        { percent: 0, type: 'lunch' },
-        { percent: 0, type: 'snack' },
+        {
+            percent: 0,
+            type: 'breakfast',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        },
+        {
+            percent: 0,
+            type: 'lunch',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        },
+        {
+            percent: 0,
+            type: 'snack',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        },
     ],
     date: new Date().toISOString().slice(0, 10),
     timestamp: new Date(),
