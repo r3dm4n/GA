@@ -1,5 +1,5 @@
-import { Plate } from './src/types/menu'
-import { Child, User } from './src/types/user'
+import { Plate } from './menu'
+import { Child, User } from './user'
 
 export interface Presence {
     id: string | null
@@ -26,20 +26,17 @@ export const INITIAL_PRESENCE: Presence = {
         {
             percent: 0,
             type: 'breakfast',
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
+            createdAt: null,
         },
         {
             percent: 0,
             type: 'lunch',
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
+            createdAt: null,
         },
         {
             percent: 0,
             type: 'snack',
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
+            createdAt: null,
         },
     ],
     date: new Date().toISOString().slice(0, 10),

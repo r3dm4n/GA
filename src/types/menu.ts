@@ -15,7 +15,6 @@ export interface Plate {
     type: MealType
     percent: number
     createdAt: string | null
-    updatedAt: string | null
 }
 
 export interface Eat {
