@@ -1,5 +1,9 @@
 import { Metadata } from './metadata'
 
+enum PostType {
+    Post,
+    Story,
+}
 
 export interface Attachment {
   fileName: string
@@ -21,43 +25,45 @@ export interface Comment extends Metadata {
 }
 
 export interface Post extends Metadata {
-  id?: string
-  groupIds: string[]
-  body: string
-  attachments: Attachment[]
-  reviewed: boolean
-  author: string
-  likedBy: string[]
-  bookmarkedBy: string[]
-  numberOfLikes: number
-  numberOfBookmarks: number
-  comments: Comment[]
-  commentsOn: boolean
-  liveAt: string | null
-  sendNotification: boolean
-  numberOfComments: number
-  numberOfViews: number
+    id?: string
+    type: PostType
+    groupIds: string[]
+    body: string
+    attachments: Attachment[]
+    reviewed: boolean
+    author: string
+    likedBy: string[]
+    bookmarkedBy: string[]
+    numberOfLikes: number
+    numberOfBookmarks: number
+    comments: Comment[]
+    commentsOn: boolean
+    liveAt: string | null
+    sendNotification: boolean
+    numberOfComments: number
+    numberOfViews: number
 }
 
 export const INITIAL_POST: Post = {
-  id: undefined,
-  groupIds: [],
-  body: '',
-  attachments: [],
-  reviewed: false,
-  author: '',
-  numberOfLikes: 0,
-  likedBy: [],
-  bookmarkedBy: [],
-  numberOfBookmarks: 0,
-  createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString(),
-  numberOfComments: 0,
-  numberOfViews: 0,
-  comments: [],
-  commentsOn: true,
-  liveAt: null,
-  sendNotification: true,
+    id: undefined,
+    type: PostType.Post,
+    groupIds: [],
+    body: '',
+    attachments: [],
+    reviewed: false,
+    author: '',
+    numberOfLikes: 0,
+    likedBy: [],
+    bookmarkedBy: [],
+    numberOfBookmarks: 0,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    numberOfComments: 0,
+    numberOfViews: 0,
+    comments: [],
+    commentsOn: true,
+    liveAt: null,
+    sendNotification: true,
 }
 
 export interface GetPostDto {
