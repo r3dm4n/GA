@@ -1,6 +1,6 @@
 import { Metadata } from './metadata'
 
-enum PostType {
+export enum PostType {
     Post,
     Story,
 }
