@@ -6,13 +6,14 @@ export enum PostType {
 }
 
 export interface Attachment {
-  fileName: string
-  url: string
-  blurhash: string
-  id: number
-  width: number
-  height: number
-  type: 'image' | 'video'
+    id?: string
+    sortId: number
+    fileName: string
+    url: string
+    blurhash: string
+    width: number
+    height: number
+    type: 'image' | 'video'
 }
 export interface Comment extends Metadata {
   id?: string
