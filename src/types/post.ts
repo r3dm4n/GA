@@ -21,6 +21,7 @@ export interface Attachment {
     width: number
     height: number
     type: 'image' | 'video'
+    file: Express.Multer.File
 }
 export interface Comment extends Metadata {
   id?: string
