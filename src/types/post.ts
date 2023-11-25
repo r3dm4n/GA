@@ -5,9 +5,11 @@ export enum PostType {
     Story,
 }
 
-interface Thumbnail {
+export interface Thumbnail {
+    id: number
     url: string
     favorite: boolean
+    blurhash: string
 }
 
 export interface Attachment {
@@ -21,7 +23,7 @@ export interface Attachment {
     width: number
     height: number
     type: 'image' | 'video'
-    file: Express.Multer.File
+    file?: Express.Multer.File
 }
 export interface Comment extends Metadata {
   id?: string
