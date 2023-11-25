@@ -14,7 +14,7 @@ export interface Attachment {
     id?: string
     sortId: number
     fileName: string
-    imageUrl: string
+    url: string
     videoUrl?: string
     thumbnails: Thumbnail[]
     blurhash: string
