@@ -5,11 +5,18 @@ export enum PostType {
     Story,
 }
 
+interface Thumbnail {
+    url: string
+    favorite: boolean
+}
+
 export interface Attachment {
     id?: string
     sortId: number
     fileName: string
-    url: string
+    imageUrl: string
+    videoUrl?: string
+    thumbnails: Thumbnail[]
     blurhash: string
     width: number
     height: number
