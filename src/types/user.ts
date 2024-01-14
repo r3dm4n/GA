@@ -34,6 +34,7 @@ export interface User extends Metadata {
     blurhash: string | null
     customerId: string | null
     email: string
+    username: string
     displayName: string
     password: string
     role: Role
@@ -66,7 +67,7 @@ export enum UserType {
     DISABLED = 'DISABLED',
 }
 
-export interface DecodedUser  {
+export interface DecodedUser {
     uid: string
     email: string
     createdAt: string
@@ -112,6 +113,7 @@ export const INITIAL_USER: User = {
     customerId: null,
     uid: '',
     displayName: '',
+    username: '',
     email: '',
     password: '',
     role: Role.PARENT,
