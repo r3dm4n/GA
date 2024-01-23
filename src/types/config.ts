@@ -6,9 +6,14 @@ export interface Payments {
 }
 
 
+interface PostsConfig {
+    tags: string[]
+}
+
 export interface Config {
     groups: Group[]
     payments: Payments
+    posts: PostsConfig
     tax?: Tax
 }
 
