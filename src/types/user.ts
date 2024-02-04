@@ -21,6 +21,7 @@ export interface Adult extends Human, Metadata {
     nationality?: string
     citizenship?: string
     signature?: string
+    sendInvoice: boolean
 }
 
 export interface Child extends Human, Metadata {
@@ -104,8 +105,9 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
-    gender: null,
     id: '',
+    gender: null,
+    sendInvoice: false,
     phoneNumber: '',
     address: '',
     state: '',
