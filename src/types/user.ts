@@ -9,19 +9,20 @@ export interface Human {
     lastName: string
     cnp: string
     gender: Gender | null
+    address: string
 }
 
 export interface Adult extends Human, Metadata {
     id: string
     phoneNumber: string
-    address: string
+
     state: string
     city: string
     country: string
     nationality?: string
     citizenship?: string
     signature?: string
-    sendInvoice: boolean
+    invoicePayer: boolean
 }
 
 export interface Child extends Human, Metadata {
@@ -91,6 +92,7 @@ export const INITIAL_CHILD: Child = {
     gender: null,
     avatar: null,
     blurhash: null,
+    address: '',
     uid: '',
     id: '',
     cnp: '',
@@ -105,9 +107,9 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
-    id: '',
     gender: null,
-    sendInvoice: false,
+    invoicePayer: false,
+    id: '',
     phoneNumber: '',
     address: '',
     state: '',
