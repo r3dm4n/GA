@@ -5,6 +5,7 @@ import { Metadata } from './metadata'
 export interface Human {
     firstName: string
     lastName: string
+    cnp: string
 }
 
 export interface Adult extends Human, Metadata {
@@ -21,7 +22,6 @@ export interface Child extends Human, Metadata {
     blurhash: string | null
     uid: string
     id: string
-    cnp: string
     placeOfBirth: string
     groupId: string
     birthday: string
@@ -47,6 +47,11 @@ export interface User extends Metadata {
     disabled: boolean
     canComment: boolean
     bookmarks: string[]
+}
+
+export enum BelogsTo {
+    NURSERY,
+    KINDERGARTEN,
 }
 
 export enum Role {
@@ -97,6 +102,7 @@ export const INITIAL_PARENT: Adult = {
     address: '',
     firstName: '',
     lastName: '',
+    cnp: '',
     createdAt: '',
     updatedAt: '',
     signature: '',
