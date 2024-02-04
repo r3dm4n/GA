@@ -2,10 +2,13 @@ import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
 
+type Gender = 'M' | 'F'
+
 export interface Human {
     firstName: string
     lastName: string
     cnp: string
+    gender: Gender | null
 }
 
 export interface Adult extends Human, Metadata {
@@ -84,6 +87,7 @@ export interface DecodedUser {
 }
 
 export const INITIAL_CHILD: Child = {
+    gender: null,
     avatar: null,
     blurhash: null,
     uid: '',
@@ -100,6 +104,7 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
+    gender: null,
     id: '',
     phoneNumber: '',
     address: '',
