@@ -12,6 +12,9 @@ export interface Adult extends Human, Metadata {
     id: string
     phoneNumber: string
     address: string
+    state: string
+    city: string
+    country: string
     nationality?: string
     citizenship?: string
     signature?: string
@@ -100,6 +103,9 @@ export const INITIAL_PARENT: Adult = {
     id: '',
     phoneNumber: '',
     address: '',
+    state: '',
+    city: '',
+    country: '',
     firstName: '',
     lastName: '',
     cnp: '',
