@@ -177,7 +177,7 @@ export const generateUUID = (digits = 12) => {
 
 export const POST_LIMIT = 10
 export const POST_HEIGHT = 420
-export const POST_IMAGE_LIMIT = 4
+export const POST_IMAGE_LIMIT = 12
 
 export const isValidEmail = (email: string) => {
     const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
