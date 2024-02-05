@@ -154,7 +154,7 @@ export const userRoleToRomanain = (role: Role): string => {
 }
 
 export const formatTimeAgoDisplay = (str: string): string => {
-    return str.replace('circa', '')
+    return str.replace('circa', '').replace('minute', 'min').replace('zile', 'z')
 }
 
 export const errorMessage = (error: unknown): string => {
