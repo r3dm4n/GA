@@ -7,11 +7,12 @@ export interface Choice {
 
 export interface Poll {
     id: string
+    postId: string
+    createdBy: string
     title: string
     choices: Choice[]
     totalVotes: number
     createdAt: string
     expiresAt: string
-    createdBy: string
     isExpired: boolean
 }
