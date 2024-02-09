@@ -25,14 +25,15 @@ export interface Attachment {
     type: 'image' | 'video'
     file?: Express.Multer.File
 }
+
 export interface Comment extends Metadata {
-  id?: string
-  postId: string
-  uid: string
-  displayName: string
-  avatar: string
-  body: string
-  hidden: false
+    id?: string
+    postId: string
+    uid: string
+    displayName: string
+    avatar: string
+    body: string
+    hidden: false
 }
 
 export interface Post extends Metadata {
@@ -50,6 +51,7 @@ export interface Post extends Metadata {
     comments: Comment[]
     commentsOn: boolean
     liveAt: string | null
+    pollId: string | null
     sendNotification: boolean
     numberOfComments: number
     numberOfViews: number
@@ -75,6 +77,7 @@ export const INITIAL_POST: Post = {
     commentsOn: true,
     liveAt: null,
     sendNotification: true,
+    pollId: null,
 }
 
 export interface GetPostDto {
