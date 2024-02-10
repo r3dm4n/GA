@@ -6,10 +6,6 @@ export interface Choice {
 }
 
 export interface Poll {
-    id?: string
-    postId: string
-    createdBy: string
-    title: string
     choices: Choice[]
     totalVotes: number
     createdAt: string
@@ -18,10 +14,6 @@ export interface Poll {
 }
 
 export const INITIAL_POLL: Poll = {
-    id: '',
-    postId: '',
-    createdBy: '',
-    title: '',
     choices: [],
     totalVotes: 0,
     createdAt: new Date().toISOString(),
