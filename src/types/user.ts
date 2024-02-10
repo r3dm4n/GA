@@ -15,7 +15,6 @@ export interface Human {
 export interface Adult extends Human, Metadata {
     id: string
     phoneNumber: string
-
     state: string
     city: string
     country: string
