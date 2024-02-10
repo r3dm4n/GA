@@ -1,39 +1,11 @@
+import { Attachment } from './attachment'
+import { Comment } from './comment'
 import { Metadata } from './metadata'
+import { Poll } from './poll'
 
 export enum PostType {
     Post,
     Story,
-}
-
-export interface Thumbnail {
-    id: number
-    url: string
-    favorite: boolean
-    blurhash: string
-}
-
-export interface Attachment {
-    id?: string
-    sortId: number
-    fileName: string
-    url: string
-    videoUrl?: string
-    thumbnails: Thumbnail[]
-    blurhash: string
-    width: number
-    height: number
-    type: 'image' | 'video'
-    file?: Express.Multer.File
-}
-
-export interface Comment extends Metadata {
-    id?: string
-    postId: string
-    uid: string
-    displayName: string
-    avatar: string
-    body: string
-    hidden: false
 }
 
 export interface Post extends Metadata {
@@ -51,7 +23,7 @@ export interface Post extends Metadata {
     comments: Comment[]
     commentsOn: boolean
     liveAt: string | null
-    pollId: string | null
+    poll: Poll | null
     sendNotification: boolean
     numberOfComments: number
     numberOfViews: number
@@ -77,17 +49,17 @@ export const INITIAL_POST: Post = {
     commentsOn: true,
     liveAt: null,
     sendNotification: true,
-    pollId: null,
+    poll: null,
 }
 
 export interface GetPostDto {
-  createdAt: string | null
-  reviewed: boolean | null
-  limit: number
+    createdAt: string | null
+    reviewed: boolean | null
+    limit: number
 }
 
 export interface GetPostResponse {
-  posts: Post[]
-  hasNext: boolean
-  createdAt: string | null
+    posts: Post[]
+    hasNext: boolean
+    createdAt: string | null
 }

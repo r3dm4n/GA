@@ -6,7 +6,7 @@ export interface Choice {
 }
 
 export interface Poll {
-    id: string
+    id?: string
     postId: string
     createdBy: string
     title: string
@@ -15,4 +15,16 @@ export interface Poll {
     createdAt: string
     expiresAt: string
     isExpired: boolean
+}
+
+export const INITIAL_POLL: Poll = {
+    id: '',
+    postId: '',
+    createdBy: '',
+    title: '',
+    choices: [],
+    totalVotes: 0,
+    createdAt: new Date().toISOString(),
+    expiresAt: new Date().toISOString(),
+    isExpired: false,
 }

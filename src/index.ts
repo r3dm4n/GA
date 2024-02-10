@@ -1,4 +1,6 @@
 export * from './lib/helpers'
+export * from './types/attachment'
+export * from './types/comment'
 export * from './types/config'
 export * from './types/group'
 export * from './types/invoice'
