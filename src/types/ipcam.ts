@@ -1,8 +1,8 @@
 export enum IpcamId {
-    BEBE = '1',
-    MICA = '2',
-    MIJLOCIE = '3',
-    MARE = '4',
+    BEBE,
+    MICA,
+    MIJLOCIE,
+    MARE,
 }
 
 export interface Ipcam {

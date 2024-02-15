@@ -50,9 +50,9 @@ export const dayOfWeekToString = (index: number): string => {
 export const ipcamIdToRo = (ipcamId: IpcamId): string => {
     switch (ipcamId) {
         case IpcamId.BEBE:
-            return 'Parter'
+            return 'Bebe Parter'
         case IpcamId.MIJLOCIE:
-            return 'Etaj 1'
+            return 'Etaj 1 (bebe 2)'
         case IpcamId.MICA:
             return 'Etaj 2'
         case IpcamId.MARE:
