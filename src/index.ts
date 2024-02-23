@@ -12,6 +12,8 @@ export * from './types/poll'
 export * from './types/post'
 export * from './types/presence'
 export * from './types/pushNotification'
+export * from './types/recepie'
 export * from './types/tab'
 export * from './types/tax'
 export * from './types/user'
+

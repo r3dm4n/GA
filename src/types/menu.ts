@@ -1,8 +1,10 @@
+import { Recepie } from './recepie'
+
 export type MealType = 'breakfast' | 'lunch' | 'snack'
 
 export interface Meal {
     type: MealType
-    content: string
+    recepie: Recepie
 }
 
 export interface Menu {
