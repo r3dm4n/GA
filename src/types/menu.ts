@@ -4,7 +4,7 @@ export type MealType = 'breakfast' | 'lunch' | 'snack'
 
 export interface Meal {
     type: MealType
-    recepie: Recepie
+    recepies: Recepie[]
 }
 
 export interface Menu {
