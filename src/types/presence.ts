@@ -25,16 +25,19 @@ export const INITIAL_PRESENCE: Presence = {
     plates: [
         {
             percent: 0,
+            calories: 0,
             type: 'breakfast',
             createdAt: null,
         },
         {
             percent: 0,
+            calories: 0,
             type: 'lunch',
             createdAt: null,
         },
         {
             percent: 0,
+            calories: 0,
             type: 'snack',
             createdAt: null,
         },

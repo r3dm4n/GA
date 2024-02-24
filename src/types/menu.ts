@@ -16,6 +16,7 @@ export interface Menu {
 export interface Plate {
     type: MealType
     percent: number
+    calories: number
     createdAt: string | null
 }
 
