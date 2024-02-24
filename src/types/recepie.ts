@@ -22,6 +22,7 @@ export interface Ingredient {
     nutritionalValues: NutritionalValues
     additives: string
     alergens: string
+    frozen: boolean
 }
 
 export const INITIAL_INGREDIENT: Ingredient = {
@@ -39,6 +40,7 @@ export const INITIAL_INGREDIENT: Ingredient = {
     },
     additives: '',
     alergens: '',
+    frozen: false,
 }
 
 export const INITIAL_RECEIPE: Recepie = {
