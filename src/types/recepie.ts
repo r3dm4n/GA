@@ -1,11 +1,22 @@
 export interface Recepie {
     id: string | null
     name: string
-    calories: number
     ingredients: Ingredient[]
+    macros: Macros
 }
 
-export interface NutritionalValues {
+export interface Ingredient {
+    id: string | null
+    name: string
+    description: string
+    quantity: number
+    macros: Macros
+    additives: string
+    alergens: string
+    frozen: boolean
+}
+
+export interface Macros {
     fats: number
     saturatedFats: number
     carbohydrates: number
@@ -14,15 +25,20 @@ export interface NutritionalValues {
     salt: number
 }
 
-export interface Ingredient {
-    id: string | null
-    name: string
-    description: string
-    quantity: number
-    nutritionalValues: NutritionalValues
-    additives: string
-    alergens: string
-    frozen: boolean
+export const INITIAL_MACROS: Macros = {
+    fats: 0,
+    saturatedFats: 0,
+    carbohydrates: 0,
+    sugars: 0,
+    proteins: 0,
+    salt: 0,
+}
+
+export const INITIAL_RECEIPE: Recepie = {
+    id: null,
+    name: '',
+    ingredients: [],
+    macros: INITIAL_MACROS,
 }
 
 export const INITIAL_INGREDIENT: Ingredient = {
@@ -30,22 +46,8 @@ export const INITIAL_INGREDIENT: Ingredient = {
     name: '',
     description: '',
     quantity: 0,
-    nutritionalValues: {
-        fats: 0,
-        saturatedFats: 0,
-        carbohydrates: 0,
-        sugars: 0,
-        proteins: 0,
-        salt: 0,
-    },
+    macros: INITIAL_MACROS,
     additives: '',
     alergens: '',
     frozen: false,
-}
-
-export const INITIAL_RECEIPE: Recepie = {
-    id: null,
-    name: '',
-    calories: 0,
-    ingredients: [],
 }
