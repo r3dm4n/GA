@@ -3,6 +3,7 @@ export interface Recepie {
     name: string
     ingredients: Ingredient[]
     macros: Macros
+    calories: number
 }
 
 export interface Ingredient {
@@ -39,6 +40,7 @@ export const INITIAL_RECEIPE: Recepie = {
     name: '',
     ingredients: [],
     macros: INITIAL_MACROS,
+    calories: 0,
 }
 
 export const INITIAL_INGREDIENT: Ingredient = {
