@@ -4,6 +4,7 @@ export type MealType = 'breakfast' | 'lunch' | 'snack'
 
 export interface Meal {
     type: MealType
+    calories: number
     recepies: Recepie[]
 }
 

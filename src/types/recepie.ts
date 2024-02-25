@@ -11,6 +11,7 @@ export interface Ingredient {
     name: string
     description: string
     quantity: number
+    caloriesPer100: number
     macros: Macros
     additives: string
     alergens: string
@@ -48,6 +49,7 @@ export const INITIAL_INGREDIENT: Ingredient = {
     name: '',
     description: '',
     quantity: 0,
+    caloriesPer100: 0,
     macros: INITIAL_MACROS,
     additives: '',
     alergens: '',
