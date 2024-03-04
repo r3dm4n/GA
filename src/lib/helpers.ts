@@ -154,7 +154,19 @@ export const userRoleToRomanain = (role: Role): string => {
 }
 
 export const formatTimeAgoDisplay = (str: string): string => {
-    return str.replace('circa', '').replace('minute', 'min').replace('zile', 'z')
+    return str
+        .replace('mai puțin de un minut', 'cateva sec')
+        .replace('circa', '')
+        .replace('minute', 'm')
+        .replace('min', 'm')
+        .replace('zile', 'z')
+        .replace('ore', 'o')
+        .replace('saptamani', 's')
+        .replace('sapt', 's')
+        .replace('luni', 'l')
+        .replace('luna', 'l')
+        .replace('ani', 'a')
+        .replace('an', 'a')
 }
 
 export const errorMessage = (error: unknown): string => {
