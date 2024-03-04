@@ -4,7 +4,7 @@ export interface Comment extends Metadata {
     id?: string
     postId: string
     uid: string
-    displayName: string
+    username: string
     avatar: string
     body: string
     hidden: false
