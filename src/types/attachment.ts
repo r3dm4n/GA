@@ -5,13 +5,20 @@ export interface Thumbnail {
     blurhash: string
 }
 
+export interface Video {
+    _480p: string
+    _720p: string
+    _1080p: string
+    original: string
+    thumbnails: Thumbnail[]
+}
+
 export interface Attachment {
     id?: string
     sortId: number
     fileName: string
-    url: string
-    videoUrl?: string
-    thumbnails: Thumbnail[]
+    imageUrl: string
+    video: Video | null
     blurhash: string
     width: number
     height: number
