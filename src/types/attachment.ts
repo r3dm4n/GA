@@ -6,9 +6,7 @@ export interface Thumbnail {
 }
 
 export interface Video {
-    _480p: string
-    _720p: string
-    _1080p: string
+    optimized: string
     original: string
     thumbnails: Thumbnail[]
 }
