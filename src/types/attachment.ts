@@ -5,9 +5,29 @@ export interface Thumbnail {
     blurhash: string
 }
 
+export enum Quality {
+    '360p' = 360,
+    '480p' = 480,
+    '720p' = 720,
+    '1080p' = 1080,
+    '2160p' = 2160,
+}
+
+export enum Resolution {
+    '2160p' = '3840:2160',
+    '1080p' = '1920:1080',
+    '720p' = '1280:720',
+    '480p' = '854:480',
+    '360p' = '480:360',
+}
+
+interface VideoSource {
+    url: string
+    quality: Quality
+}
+
 export interface Video {
-    optimized: string
-    original: string
+    sources: VideoSource[]
     thumbnails: Thumbnail[]
 }
 
