@@ -39,6 +39,8 @@ export interface OblioInvoice {
     collected: '0' | '1'
     seriesName: string
     number: string
+    storno: '0' | '1'
+    stornoed: '0' | '1'
     issueDate: string
     dueDate: string
     currency: string

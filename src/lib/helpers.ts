@@ -1,9 +1,7 @@
-import { AxiosError } from 'axios'
 import { InvoiceStatus } from '../types/invoice'
 import { IpcamId } from '../types/ipcam'
 import { MealType } from '../types/menu'
 import { Role, Schedule, UserType } from '../types/user'
-
 
 export function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -132,14 +130,14 @@ export const navigation: Navigation[] = [
     { title: 'Camere', href: '/ipcams' },
 ]
 
-
 const today = new Date()
 export const isWeekend = today.getDay() === 0 || today.getDay() === 6
 
 export const sleep = async (time: number) => {
     return new Promise((resolve) => setTimeout(resolve, time))
 }
-export const EMPTY_AVATAR = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMApjZlivZ2eTJ91_6T3wMJbzzCN6tnWOBPg&usqp=CAU'
+export const EMPTY_AVATAR =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMApjZlivZ2eTJ91_6T3wMJbzzCN6tnWOBPg&usqp=CAU'
 
 export const userRoleToRomanain = (role: Role): string => {
     switch (role) {
@@ -168,15 +166,6 @@ export const formatTimeAgoDisplay = (str: string): string => {
         .replace('ani', 'a')
         .replace('an', 'a')
 }
-
-export const errorMessage = (error: unknown): string => {
-    return error instanceof AxiosError
-        ? error.response?.data?.message
-        : error instanceof Error
-        ? error.message
-        : 'A aparut o eroare'
-}
-
 
 export const generateUUID = (digits = 12) => {
     let str = '0123456789abcdefghijklmnopqrstuvwxyz'
