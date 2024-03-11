@@ -168,7 +168,8 @@ export const formatTimeAgoDisplay = (str: string): string => {
 }
 
 export const generateUUID = (digits = 12) => {
-    let str = '0123456789abcdefghijklmnopqrstuvwxyz'
+    let str =
+        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+{}|:<>?/.,;[]=-'
     let uuid = []
     for (let i = 0; i < digits; i++) {
         uuid.push(str[Math.floor(Math.random() * str.length)])
