@@ -1,7 +1,7 @@
 import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
-import { CIF } from './tax'
+import { CIF, Extra } from './tax'
 
 type Gender = 'M' | 'F'
 
@@ -35,6 +35,7 @@ export interface Child extends Human, Metadata {
     birthday: string
     schedule: Schedule
     cif: CIF
+    extras: Extra[]
 }
 
 export interface User extends Metadata {
@@ -107,6 +108,7 @@ export const INITIAL_CHILD: Child = {
     createdAt: '',
     updatedAt: '',
     cif: INITIAL_CIF,
+    extras: [],
 }
 
 export const INITIAL_PARENT: Adult = {
