@@ -17,5 +17,5 @@ export interface Extra {
 
 export interface WorkingDays {
     date: string
-    workingDays: number
+    count: number
 }
