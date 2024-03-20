@@ -1,8 +1,6 @@
 
 import { v4 as uuid } from 'uuid'
 import { Metadata } from './metadata'
-import { Tax } from './tax'
-import { User } from './user'
 
 export const INVOICE_LIMIT = 10
 
@@ -92,40 +90,3 @@ export interface PaymentIntentResponse {
     publishableKey: string
 }
 
-const ABSENCES = 0
-export const generateInvoices = (user: User, tax: Tax): Invoice[] => {
-    return user.children.map((ch) => {
-        const tier = tax.tiers.find((t) => t.groupId === ch.groupId && t.schedule === ch.schedule)
-        if (!tier) {
-            return {
-                ...INITIAL_INVOICE,
-                createdAt: uuid(),
-                uid: user.uid,
-                childId: ch.id,
-            }
-        }
-
-        return {
-            ...INITIAL_INVOICE,
-            childId: ch.id,
-            uid: user.uid,
-            description:
-                user.children.length > 1
-                    ? `${ch.firstName} ${ch.lastName} • ${tax.description}`
-                    : tax.description,
-            createdAt: uuid(),
-            items: [
-                {
-                    id: uuid(),
-                    name: `Masa`,
-                    amount: tier.meal * (tax.days - ABSENCES),
-                },
-                {
-                    id: uuid(),
-                    name: `Taxa`,
-                    amount: tier.tuition,
-                },
-            ],
-        }
-    })
-}

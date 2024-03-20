@@ -1,14 +1,21 @@
-import { Schedule } from './user'
-
-export interface Tier {
-    groupId: string
-    schedule: Schedule
+export interface Tax {
     meal: number
     tuition: number
+    total: number
+    cif: CIF
+    extras: Extra[]
 }
 
-export interface Tax {
-    days: number
-    description: string
-    tiers: Tier[]
+export interface CIF {
+    name: string
+    value: string
+}
+export interface Extra {
+    name: string
+    value: number
+}
+
+export interface WorkingDays {
+    date: string
+    workingDays: number
 }

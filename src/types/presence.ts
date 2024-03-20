@@ -1,5 +1,5 @@
 import { Plate } from './menu'
-import { Child, User } from './user'
+import { Tax, WorkingDays } from './tax'
 
 export interface Presence {
     id: string | null
@@ -49,14 +49,22 @@ export const INITIAL_PRESENCE: Presence = {
     tokens: undefined,
 }
 
-export interface PresenceState {
-    users: User[]
-    children: Child[]
-    presences: Presence[]
+export interface ChildPresenceReport {
+    uid: string
+    childId: string
+    displayName: string
+    presenceCount: number
+    absenceCount: number
+}
+
+export interface PresenceReport extends ChildPresenceReport {
     date: string
-    updated: boolean
-    saving: boolean
-    loading: boolean
-    refreshing: boolean
-    error: Error | null
+    tax: Tax
+    workingDaysCount: number
+    presences: Partial<Presence>[]
+}
+
+export interface PresenceConfig {
+    tax: Tax
+    workingDays: WorkingDays[]
 }

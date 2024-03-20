@@ -1,14 +1,9 @@
 import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
+import { CIF } from './tax'
 
 type Gender = 'M' | 'F'
-
-interface CIF {
-    name: string
-    value: string
-}
-const INITIAL_CIF: CIF = { name: '', value: '' }
 
 export interface Human {
     firstName: string
@@ -93,6 +88,7 @@ export interface DecodedUser {
     role: Role
     groupIds: string[]
 }
+const INITIAL_CIF: CIF = { name: '', value: '' }
 
 export const INITIAL_CHILD: Child = {
     gender: null,
