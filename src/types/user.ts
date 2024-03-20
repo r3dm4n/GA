@@ -3,7 +3,12 @@ import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
 
 type Gender = 'M' | 'F'
-type CIF = '47940712' | '27968492' | ''
+
+interface CIF {
+    name: string
+    value: string
+}
+const INITIAL_CIF: CIF = { name: '', value: '' }
 
 export interface Human {
     firstName: string
@@ -105,7 +110,7 @@ export const INITIAL_CHILD: Child = {
     lastName: '',
     createdAt: '',
     updatedAt: '',
-    cif: '',
+    cif: INITIAL_CIF,
 }
 
 export const INITIAL_PARENT: Adult = {
