@@ -12,7 +12,9 @@ export interface CIF {
 }
 export interface Extra {
     name: string
-    value: number
+    price: number
+    pricePerSession: number
+    sessions: number
 }
 
 export interface WorkingDays {
