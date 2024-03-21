@@ -1,7 +1,7 @@
 import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
-import { CIF, Extra } from './tax'
+import { Company, Extra } from './tax'
 
 type Gender = 'M' | 'F'
 
@@ -34,7 +34,7 @@ export interface Child extends Human, Metadata {
     groupId: string
     birthday: string
     schedule: Schedule
-    cif: CIF
+    clientOf: Company
     extras: Extra[]
 }
 
@@ -89,7 +89,7 @@ export interface DecodedUser {
     role: Role
     groupIds: string[]
 }
-const INITIAL_CIF: CIF = { name: '', value: '' }
+const INITIAL_COMPANY: Company = { name: '', cif: '' }
 
 export const INITIAL_CHILD: Child = {
     gender: null,
@@ -107,7 +107,7 @@ export const INITIAL_CHILD: Child = {
     lastName: '',
     createdAt: '',
     updatedAt: '',
-    cif: INITIAL_CIF,
+    clientOf: INITIAL_COMPANY,
     extras: [],
 }
 

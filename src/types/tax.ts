@@ -1,15 +1,16 @@
+export interface Company {
+    name: string
+    cif: string
+}
+
 export interface Tax {
     meal: number
     tuition: number
     total: number
-    cif: CIF
+    company: Company
     extras: Extra[]
 }
 
-export interface CIF {
-    name: string
-    value: string
-}
 export interface Extra {
     name: string
     price: number
