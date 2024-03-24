@@ -109,6 +109,8 @@ export const INITIAL_CHILD: Child = {
     updatedAt: '',
     clientOf: INITIAL_COMPANY,
     extras: [],
+    citizenship: 'Romana',
+    nationality: 'Romana',
 }
 
 export const INITIAL_PARENT: Adult = {
