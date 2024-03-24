@@ -11,6 +11,8 @@ export interface Human {
     cnp: string
     gender: Gender | null
     address: string
+    nationality?: string
+    citizenship?: string
 }
 
 export interface Adult extends Human, Metadata {
@@ -19,8 +21,6 @@ export interface Adult extends Human, Metadata {
     state: string
     city: string
     country: string
-    nationality?: string
-    citizenship?: string
     signature?: string
     invoicePayer: boolean
 }
@@ -126,8 +126,8 @@ export const INITIAL_PARENT: Adult = {
     createdAt: '',
     updatedAt: '',
     signature: '',
-    citizenship: '',
-    nationality: '',
+    citizenship: 'Romana',
+    nationality: 'Romana',
 }
 
 export const INITIAL_USER: User = {

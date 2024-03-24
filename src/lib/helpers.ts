@@ -6,6 +6,7 @@ import { Role, Schedule, UserType } from '../types/user'
 export function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
+
 export const GENERIC_ERROR = 'Oops, a aparut o eroare'
 export const mealTypeToRomanian = (mealType: MealType): string => {
     switch (mealType) {
@@ -48,13 +49,13 @@ export const dayOfWeekToString = (index: number): string => {
 export const ipcamIdToRo = (ipcamId: IpcamId): string => {
     switch (ipcamId) {
         case IpcamId.BEBE:
-            return 'Bebe Parter'
+            return 'Parter'
         case IpcamId.MIJLOCIE:
-            return 'Etaj 1 (bebe 2)'
+            return 'Etaj - sala 1'
         case IpcamId.MICA:
-            return 'Etaj 2'
+            return 'Etaj - sala 2'
         case IpcamId.MARE:
-            return 'Etaj 3'
+            return 'Etaj - sala 3'
 
         default:
             throw new Error('undefined IpcamId')
@@ -168,8 +169,7 @@ export const formatTimeAgoDisplay = (str: string): string => {
 }
 
 export const generateUUID = (digits = 12) => {
-    let str =
-        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+{}|:<>?/.,;[]=-'
+    let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     let uuid = []
     for (let i = 0; i < digits; i++) {
         uuid.push(str[Math.floor(Math.random() * str.length)])
