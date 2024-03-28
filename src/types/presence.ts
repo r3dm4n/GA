@@ -1,5 +1,6 @@
 import { Plate } from './menu'
-import { Tax, WorkingDays } from './tax'
+import { Tax } from './tax'
+import { WorkingDays } from './working-days'
 
 export interface Presence {
     id: string | null

@@ -16,7 +16,13 @@ export interface Extra {
     price: number
 }
 
-export interface WorkingDays {
-    date: string
-    count: number
+export const INITIAL_TAX: Tax = {
+    meal: 0,
+    tuition: 0,
+    total: 0,
+    company: {
+        name: '',
+        cif: ''
+    },
+    extras: []
 }

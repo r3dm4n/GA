@@ -16,4 +16,4 @@ export * from './types/recepie'
 export * from './types/tab'
 export * from './types/tax'
 export * from './types/user'
-
+export * from './types/working-days'

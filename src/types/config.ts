@@ -1,19 +1,25 @@
 import { Group } from './group'
-import { Tax } from './tax'
+import { Company, INITIAL_TAX, Tax } from './tax'
+import { INITIAL_WORKING_DAYS, WorkingDays } from './working-days'
 
 export interface Payments {
     enabled: boolean
 }
 
-
-interface PostsConfig {
-    tags: string[]
-}
-
 export interface Config {
     groups: Group[]
-    payments: Payments
-    posts: PostsConfig
-    tax?: Tax
+    paymentsEnabled: boolean
+    tags: string[]
+    companies: Company[]
+    tax: Tax
+    workingDays: WorkingDays[]
 }
 
+export const INITIAL_CONFIG: Config = {
+    groups: [],
+    paymentsEnabled: false,
+    tags: [],
+    companies: [],
+    workingDays: INITIAL_WORKING_DAYS,
+    tax: INITIAL_TAX,
+}
