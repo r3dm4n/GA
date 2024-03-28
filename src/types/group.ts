@@ -1,10 +1,12 @@
 export interface Group {
-    id: number
+    id: string
+    sortId: number
     name: string
     description: string
 }
 export const INITIAL_GROUP: Group = {
-    id: 0,
+    id: '',
+    sortId: 0,
     name: '',
     description: '',
 }
