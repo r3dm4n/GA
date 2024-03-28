@@ -89,7 +89,7 @@ export interface DecodedUser {
     role: Role
     groupIds: string[]
 }
-const INITIAL_COMPANY: Company = { name: '', cif: '' }
+const INITIAL_COMPANY: Company = { name: '', cif: '', type: 'nursery' }
 
 export const INITIAL_CHILD: Child = {
     gender: null,

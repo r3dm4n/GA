@@ -11,9 +11,11 @@ export interface Config {
     paymentsEnabled: boolean
     tags: string[]
     companies: Company[]
-    tax: Tax
+    taxes: Tax[]
     workingDays: WorkingDays[]
 }
+
+
 
 export const INITIAL_CONFIG: Config = {
     groups: [],
@@ -21,5 +23,5 @@ export const INITIAL_CONFIG: Config = {
     tags: [],
     companies: [],
     workingDays: INITIAL_WORKING_DAYS,
-    tax: INITIAL_TAX,
+    taxes: [],
 }
