@@ -1,5 +1,5 @@
 
-import { v4 as uuid } from 'uuid'
+import { generateUUID } from '../lib/helpers'
 import { Metadata } from './metadata'
 
 export const INVOICE_LIMIT = 10
@@ -11,7 +11,7 @@ export interface InvoiceItem {
 }
 
 export const INITIAL_INVOICE_ITEM: InvoiceItem = {
-    id: uuid(),
+    id: generateUUID(),
     name: '',
     amount: 0,
 }
