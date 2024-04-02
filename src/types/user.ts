@@ -1,7 +1,7 @@
 import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
-import { Company, Extra } from './tax'
+import { Extra } from './tax'
 
 type Gender = 'M' | 'F'
 
@@ -89,7 +89,6 @@ export interface DecodedUser {
     role: Role
     groupIds: string[]
 }
-const INITIAL_COMPANY: Company = { name: '', cif: '', type: 'nursery' }
 
 export const INITIAL_CHILD: Child = {
     gender: null,
