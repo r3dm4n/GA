@@ -34,7 +34,7 @@ export interface Child extends Human, Metadata {
     groupId: string
     birthday: string
     schedule: Schedule
-    clientOf: Company
+    cif: string
     extras: Extra[]
 }
 
@@ -107,7 +107,7 @@ export const INITIAL_CHILD: Child = {
     lastName: '',
     createdAt: '',
     updatedAt: '',
-    clientOf: INITIAL_COMPANY,
+    cif: '',
     extras: [],
     citizenship: 'Romana',
     nationality: 'Romana',
