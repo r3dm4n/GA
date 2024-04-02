@@ -5,6 +5,7 @@ import { Extra } from './tax'
 
 type Gender = 'M' | 'F'
 
+
 export interface Human {
     firstName: string
     lastName: string
