@@ -1,10 +1,9 @@
 import { generateUUID } from '../lib/helpers'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
-import { Extra } from './tax'
+import { TaxItem } from './tax'
 
 type Gender = 'M' | 'F'
-
 
 export interface Human {
     firstName: string
@@ -36,7 +35,7 @@ export interface Child extends Human, Metadata {
     birthday: string
     schedule: Schedule
     cif: string
-    extras: Extra[]
+    extras: TaxItem[]
 }
 
 export interface User extends Metadata {

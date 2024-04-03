@@ -1,9 +1,6 @@
 export interface Tax {
-    meal: number
-    tuition: number
-    total: number
     cif: string
-    extras: Extra[]
+    items: TaxItem[]
 }
 
 export interface Company {
@@ -12,15 +9,12 @@ export interface Company {
     type: 'nursery' | 'kindergarten' | 'school'
 }
 
-export interface Extra {
+export interface TaxItem {
     name: string
     price: number
 }
 
 export const INITIAL_TAX: Tax = {
-    meal: 0,
-    tuition: 0,
-    total: 0,
     cif: '',
-    extras: [],
+    items: [],
 }
