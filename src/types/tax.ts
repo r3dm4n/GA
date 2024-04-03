@@ -10,6 +10,7 @@ export interface Company {
 }
 
 export interface TaxItem {
+    id: string
     name: string
     price: number
 }
