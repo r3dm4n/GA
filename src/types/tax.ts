@@ -1,5 +1,8 @@
 export interface Tax {
     cif: string
+    tuition: number
+    mealPerDay: number
+    workingDays: number
     items: TaxItem[]
 }
 
@@ -17,5 +20,8 @@ export interface TaxItem {
 
 export const INITIAL_TAX: Tax = {
     cif: '',
+    tuition: 0,
+    mealPerDay: 0,
+    workingDays: 0,
     items: [],
 }
