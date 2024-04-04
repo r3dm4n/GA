@@ -4,6 +4,7 @@ export interface Tax {
     tuition: number
     extraItems: TaxItem[]
 
+    date?: string
     workingDays?: number
     absences?: number
     mealTotal?: number
