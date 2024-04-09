@@ -1,5 +1,5 @@
 export interface Recepie {
-    id: string | null
+    _id: string | null
     name: string
     ingredients: Ingredient[]
     macros: Macros
@@ -7,7 +7,7 @@ export interface Recepie {
 }
 
 export interface Ingredient {
-    id: string | null
+    _id: string | null
     name: string
     description: string
     quantity: number
@@ -37,7 +37,7 @@ export const INITIAL_MACROS: Macros = {
 }
 
 export const INITIAL_RECEIPE: Recepie = {
-    id: null,
+    _id: null,
     name: '',
     ingredients: [],
     macros: INITIAL_MACROS,
@@ -45,7 +45,7 @@ export const INITIAL_RECEIPE: Recepie = {
 }
 
 export const INITIAL_INGREDIENT: Ingredient = {
-    id: null,
+    _id: null,
     name: '',
     description: '',
     quantity: 0,

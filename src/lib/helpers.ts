@@ -1,5 +1,3 @@
-import { InvoiceStatus } from '../types/invoice'
-import { IpcamId } from '../types/ipcam'
 import { MealType } from '../types/menu'
 import { Role, Schedule, UserType } from '../types/user'
 
@@ -46,22 +44,6 @@ export const dayOfWeekToString = (index: number): string => {
     }
 }
 
-export const ipcamIdToRo = (ipcamId: IpcamId): string => {
-    switch (ipcamId) {
-        case IpcamId.BEBE:
-            return 'Parter'
-        case IpcamId.MIJLOCIE:
-            return 'Etaj - sala 1'
-        case IpcamId.MICA:
-            return 'Etaj - sala 2'
-        case IpcamId.MARE:
-            return 'Etaj - sala 3'
-
-        default:
-            throw new Error('undefined IpcamId')
-    }
-}
-
 export const scheduleToRo = (schedule: Schedule): string => {
     switch (schedule) {
         case Schedule.LONG:
@@ -103,14 +85,6 @@ export const userTypeToRo = (userType: UserType | string): string => {
 export const formatCurrency = (amount: number): string => {
     const commaFormatted = String(amount).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     return `${commaFormatted} Lei`
-}
-
-export const invoiceStatusToRomanian = (status: InvoiceStatus): string => {
-    return status
-        .replace('UNPAYED', 'Neachitata')
-        .replace('CASH', 'Achitata cash')
-        .replace('CARD', 'Achitata card')
-        .replace('BANK', 'Achitata banca')
 }
 
 export const delay = (ms: number): Promise<void> => {

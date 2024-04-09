@@ -1,5 +1,5 @@
 export interface Choice {
-    id: string
+    _id: string
     text: string
     votes: number
     votedBy: string[]

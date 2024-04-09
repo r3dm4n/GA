@@ -9,7 +9,8 @@ export interface Meal {
 }
 
 export interface Menu {
-    id: number
+    _id: string
+    day: number
     dayOfWeek: string
     meals: Meal[]
 }

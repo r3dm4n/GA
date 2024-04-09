@@ -1,5 +1,5 @@
 export interface Thumbnail {
-    id: number
+    _id: string
     url: string
     favorite: boolean
     blurhash: string
@@ -12,7 +12,7 @@ export interface Video {
 }
 
 export interface Attachment {
-    id?: string
+    _id: string | null
     sortId: number
     fileName: string
     imageUrl: string

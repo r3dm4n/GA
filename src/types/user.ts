@@ -16,7 +16,8 @@ export interface Human {
 }
 
 export interface Adult extends Human, Metadata {
-    id: string
+    _id: string
+    uid: string
     phoneNumber: string
     state: string
     city: string
@@ -26,10 +27,10 @@ export interface Adult extends Human, Metadata {
 }
 
 export interface Child extends Human, Metadata {
+    _id: string
     avatar: string | null
     blurhash: string | null
     uid: string
-    id: string
     placeOfBirth: string
     groupId: string
     birthday: string
@@ -39,10 +40,10 @@ export interface Child extends Human, Metadata {
 }
 
 export interface User extends Metadata {
+    _id: string | null
     uid: string
     avatar: string | null
     blurhash: string | null
-    customerId: string | null
     email: string
     username: string
     displayName: string
@@ -91,12 +92,12 @@ export interface DecodedUser {
 }
 
 export const INITIAL_CHILD: Child = {
+    _id: '',
+    uid: '',
     gender: null,
     avatar: null,
     blurhash: null,
     address: '',
-    uid: '',
-    id: '',
     cnp: '',
     placeOfBirth: '',
     groupId: 'PUBLIC',
@@ -113,9 +114,10 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
+    _id: '',
+    uid: '',
     gender: null,
     invoicePayer: false,
-    id: '',
     phoneNumber: '',
     address: '',
     state: '',
@@ -132,19 +134,19 @@ export const INITIAL_PARENT: Adult = {
 }
 
 export const INITIAL_USER: User = {
+    _id: null,
     avatar: null,
     blurhash: null,
     parents: [],
     children: [],
     emergencyContacts: [],
-    customerId: null,
     uid: '',
     displayName: '',
     username: '',
     email: '',
     password: '',
     role: Role.PARENT,
-    groupIds: ['PUBLIC'],
+    groupIds: [],
     tokens: [],
     ipcams: [],
     disabled: false,
@@ -157,7 +159,7 @@ export const INITIAL_USER: User = {
 export const generateAdult = (): Adult => {
     return {
         ...INITIAL_PARENT,
-        id: generateUUID(),
+        _id: generateUUID(),
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
     }
@@ -166,7 +168,7 @@ export const generateAdult = (): Adult => {
 export const generateChild = (): Child => {
     return {
         ...INITIAL_CHILD,
-        id: generateUUID(),
+        _id: generateUUID(),
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
     }
@@ -178,7 +180,7 @@ export const generateUser = (): User => {
         children: [
             {
                 ...INITIAL_CHILD,
-                id: generateUUID(),
+                _id: generateUUID(),
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },

@@ -9,7 +9,7 @@ export enum PostType {
 }
 
 export interface Post extends Metadata {
-    id?: string
+    _id: string | null
     type: PostType
     groupIds: string[]
     body: string
@@ -30,26 +30,26 @@ export interface Post extends Metadata {
 }
 
 export const INITIAL_POST: Post = {
-    id: undefined,
+    _id: null,
     type: PostType.Post,
     groupIds: [],
     body: '',
     attachments: [],
     reviewed: false,
     author: '',
-    numberOfLikes: 0,
     likedBy: [],
     bookmarkedBy: [],
-    numberOfBookmarks: 0,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    numberOfComments: 0,
-    numberOfViews: 0,
     comments: [],
     commentsOn: true,
     liveAt: null,
     sendNotification: true,
     poll: null,
+    numberOfLikes: 0,
+    numberOfBookmarks: 0,
+    numberOfComments: 0,
+    numberOfViews: 0,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
 }
 
 export interface GetPostDto {

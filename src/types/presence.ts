@@ -3,7 +3,7 @@ import { Tax } from './tax'
 import { WorkingDays } from './working-days'
 
 export interface Presence {
-    id: string | null
+    _id: string | null
     uid: string
     childId: string
     date: string
@@ -18,7 +18,7 @@ export interface Presence {
 }
 
 export const INITIAL_PRESENCE: Presence = {
-    id: null,
+    _id: null,
     uid: '',
     childId: '',
     isPresent: false,

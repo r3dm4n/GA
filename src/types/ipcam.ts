@@ -6,6 +6,7 @@ export enum IpcamId {
 }
 
 export interface Ipcam {
+    _id: string
     id: IpcamId
     name: string
     live: boolean

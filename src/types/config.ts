@@ -1,12 +1,14 @@
 import { Group } from './group'
-import { Company, INITIAL_TAX, Tax } from './tax'
-import { INITIAL_WORKING_DAYS, WorkingDays } from './working-days'
+import { Company, Tax } from './tax'
+import {  WorkingDays } from './working-days'
 
 export interface Payments {
     enabled: boolean
 }
 
 export interface Config {
+    _id: string
+    name: string
     groups: Group[]
     paymentsEnabled: boolean
     tags: string[]
@@ -15,13 +17,13 @@ export interface Config {
     workingDays: WorkingDays[]
 }
 
-
-
 export const INITIAL_CONFIG: Config = {
+    _id: '',
+    name: '',
     groups: [],
     paymentsEnabled: false,
     tags: [],
     companies: [],
-    workingDays: INITIAL_WORKING_DAYS,
+    workingDays: [],
     taxes: [],
 }
