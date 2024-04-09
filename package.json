@@ -1,6 +1,6 @@
 {
   "name": "gradi-types",
-  "version": "1.0.133",
+  "version": "1.0.134",
   "description": "ga-types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,9 +22,7 @@
   "keywords": [],
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/bson": "^4.2.0",
     "@types/multer": "^1.4.11",
-    "bson": "^6.6.0",
     "multer": "^1.4.5-lts.1",
     "typescript": "^4.9.5"
   },
