@@ -14,7 +14,15 @@ export interface Tax {
 export interface Company {
     name: string
     cif: string
-    type: 'nursery' | 'kindergarten' | 'school'
+    J: string
+    address: string
+    type:
+        | 'nursery'
+        | 'kindergarten'
+        | 'school'
+        | 'gymnasium'
+        | 'high-school'
+        | 'university'
 }
 
 export interface TaxItem {
