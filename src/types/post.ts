@@ -2,7 +2,7 @@ import { Attachment } from './attachment'
 import { Comment } from './comment'
 import { Metadata } from './metadata'
 import { Poll } from './poll'
-import { INITIAL_USER, User } from './user'
+import { User } from './user'
 
 export enum PostType {
     Post,
@@ -16,9 +16,9 @@ export interface Post extends Metadata {
     body: string
     attachments: Attachment[]
     reviewed: boolean
-    author: User
-    likedBy: User[]
-    bookmarkedBy: User[]
+    author: User | string
+    likedBy: User[] | string[]
+    bookmarkedBy: User[] | string[]
     comments: Comment[]
     commentsOn: boolean
     liveAt: string | null
@@ -37,7 +37,7 @@ export const INITIAL_POST: Post = {
     body: '',
     attachments: [],
     reviewed: false,
-    author: INITIAL_USER,
+    author: '',
     likedBy: [],
     bookmarkedBy: [],
     comments: [],
