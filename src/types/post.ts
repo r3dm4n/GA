@@ -1,6 +1,5 @@
 import { Attachment } from './attachment'
 import { Comment } from './comment'
-import { Metadata } from './metadata'
 import { Poll } from './poll'
 import { User } from './user'
 
@@ -9,7 +8,7 @@ export enum PostType {
     Story,
 }
 
-export interface Post extends Metadata {
+export interface Post {
     _id: string | null
     type: PostType
     groupIds: string[]
@@ -49,8 +48,8 @@ export const INITIAL_POST: Post = {
     numberOfBookmarks: 0,
     numberOfComments: 0,
     numberOfViews: 0,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    // createdAt: new Date().toISOString(),
+    // updatedAt: new Date().toISOString(),
 }
 
 export interface GetPostDto {
