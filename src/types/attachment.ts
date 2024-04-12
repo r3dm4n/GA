@@ -14,6 +14,7 @@ export interface Video {
 export interface Attachment {
     _id: string | null
     sortId: number
+    postIds: []
     fileName: string
     imageUrl: string
     video: Video | null
