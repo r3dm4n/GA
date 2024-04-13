@@ -17,13 +17,7 @@ export interface Company {
     cif: string
     J: string
     address: string
-    type:
-        | 'nursery'
-        | 'kindergarten'
-        | 'school'
-        | 'gymnasium'
-        | 'high-school'
-        | 'university'
+    type: CompanyType
 }
 
 export interface TaxItem {
@@ -44,3 +38,11 @@ export const INITIAL_TAX: Tax = {
     mealTotal: 0,
     total: 0,
 }
+
+type CompanyType =
+    | 'nursery'
+    | 'kindergarten'
+    | 'school'
+    | 'gymnasium'
+    | 'high-school'
+    | 'university'
