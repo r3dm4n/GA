@@ -13,9 +13,9 @@ export const INITIAL_GROUP: Group = {
     _id: '',
     sortId: 0,
     name: '',
-    createdAt: '',
-    updatedAt: '',
     teachers: [],
     children: [],
     imageUrl: null,
+    createdAt: '',
+    updatedAt: '',
 }

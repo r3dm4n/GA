@@ -1,6 +1,6 @@
 import { generateUUID } from '../lib/helpers'
 import { Group, INITIAL_GROUP } from './group'
-import { IpcamId } from './ipcam'
+import { Ipcam } from './ipcam'
 import { Metadata } from './metadata'
 import { Post } from './post'
 import { TaxItem } from './tax'
@@ -44,11 +44,11 @@ export interface Child extends Human, Metadata {
 export interface User extends Metadata {
     _id: string | null
     uid: string
-    avatar: string | null
-    blurhash: string | null
     email: string
     username: string
     displayName: string
+    avatar: string | null
+    blurhash: string | null
     password: string
     role: Role
     parents: Adult[]
@@ -56,7 +56,7 @@ export interface User extends Metadata {
     children: Child[]
     groups: Group[]
     tokens: string[]
-    ipcams: IpcamId[]
+    ipcams: Ipcam[]
     disabled: boolean
     canComment: boolean
     bookmarks: Post[]

@@ -10,11 +10,11 @@ export interface Config {
     _id: string
     name: string
     groups: Group[]
-    paymentsEnabled: boolean
-    tags: string[]
     companies: Company[]
     taxes: Tax[]
     workingDays: WorkingDays[]
+    paymentsEnabled: boolean
+    tags: string[]
 }
 
 export const INITIAL_CONFIG: Config = {

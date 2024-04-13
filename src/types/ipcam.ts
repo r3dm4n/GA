@@ -1,13 +1,5 @@
-export enum IpcamId {
-    BEBE,
-    MICA,
-    MIJLOCIE,
-    MARE,
-}
-
 export interface Ipcam {
     _id: string
-    id: IpcamId
     name: string
     live: boolean
     message: string
