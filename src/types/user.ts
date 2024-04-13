@@ -1,6 +1,8 @@
 import { generateUUID } from '../lib/helpers'
+import { Group, INITIAL_GROUP } from './group'
 import { IpcamId } from './ipcam'
 import { Metadata } from './metadata'
+import { Post } from './post'
 import { TaxItem } from './tax'
 
 type Gender = 'M' | 'F'
@@ -28,11 +30,11 @@ export interface Adult extends Human, Metadata {
 
 export interface Child extends Human, Metadata {
     _id: string
+    uid: string
     avatar: string | null
     blurhash: string | null
-    uid: string
     placeOfBirth: string
-    groupId: string
+    group: Group
     birthday: string
     schedule: Schedule
     cif: string
@@ -52,17 +54,12 @@ export interface User extends Metadata {
     parents: Adult[]
     emergencyContacts: Adult[]
     children: Child[]
-    groupIds: string[]
+    groups: Group[]
     tokens: string[]
     ipcams: IpcamId[]
     disabled: boolean
     canComment: boolean
-    bookmarks: string[]
-}
-
-export enum BelogsTo {
-    NURSERY,
-    KINDERGARTEN,
+    bookmarks: Post[]
 }
 
 export enum Role {
@@ -100,7 +97,7 @@ export const INITIAL_CHILD: Child = {
     address: '',
     cnp: '',
     placeOfBirth: '',
-    groupId: 'PUBLIC',
+    group: INITIAL_GROUP,
     birthday: '',
     schedule: Schedule.LONG,
     firstName: '',
@@ -146,7 +143,7 @@ export const INITIAL_USER: User = {
     email: '',
     password: '',
     role: Role.PARENT,
-    groupIds: [],
+    groups: [],
     tokens: [],
     ipcams: [],
     disabled: false,
