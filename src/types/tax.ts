@@ -12,6 +12,7 @@ export interface Tax {
 }
 
 export interface Company {
+    _id: string
     name: string
     cif: string
     J: string
