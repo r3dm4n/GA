@@ -1,14 +1,14 @@
-import { ObjectId } from 'mongodb'
+import { generateUUID } from '../lib/helpers'
 
 export interface Choice {
-    _id: ObjectId
+    id: string
     text: string
     votes: number
     votedBy: string[]
 }
 
 export interface Poll {
-    _id: ObjectId
+    id: string
     choices: Choice[]
     totalVotes: number
     createdAt: string
@@ -17,7 +17,7 @@ export interface Poll {
 }
 
 export const INITIAL_POLL: Poll = {
-    _id: new ObjectId(),
+    id: generateUUID(),
     choices: [],
     totalVotes: 0,
     createdAt: new Date().toISOString(),

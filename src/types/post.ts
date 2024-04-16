@@ -1,4 +1,3 @@
-import { ObjectId } from 'mongodb'
 import { Attachment } from './attachment'
 import { Comment } from './comment'
 import { Group } from './group'
@@ -11,7 +10,7 @@ export enum PostType {
 }
 
 export interface Post extends Metadata {
-    _id: ObjectId | null
+    id: string | null
     type: PostType
     groups: Group[]
     body: string
@@ -32,7 +31,7 @@ export interface Post extends Metadata {
 }
 
 export const INITIAL_POST: Post = {
-    _id: null,
+    id: null,
     type: PostType.Post,
     groups: [],
     body: '',

@@ -1,7 +1,5 @@
-import { ObjectId } from 'mongodb'
-
 export interface Ipcam {
-    _id: ObjectId
+    id: string
     name: string
     live: boolean
     message: string

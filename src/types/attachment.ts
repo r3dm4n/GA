@@ -1,7 +1,5 @@
-import { ObjectId } from 'mongodb'
-
 export interface Thumbnail {
-    _id: ObjectId
+    id: string
     url: string
     favorite: boolean
     blurhash: string
@@ -14,7 +12,7 @@ export interface Video {
 }
 
 export interface Attachment {
-    _id: ObjectId | null
+    id: string | null
     sortId: number
     postIds: []
     fileName: string

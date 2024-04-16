@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb'
+import { generateUUID } from '../lib/helpers'
 import { Group } from './group'
 import { Company, Tax } from './tax'
 import { WorkingDays } from './working-days'
@@ -8,7 +8,7 @@ export interface Payments {
 }
 
 export interface Config {
-    _id: ObjectId
+    id: string
     name: string
     groups: Group[]
     companies: Company[]
@@ -19,7 +19,7 @@ export interface Config {
 }
 
 export const INITIAL_CONFIG: Config = {
-    _id: new ObjectId(),
+    id: generateUUID(),
     name: '',
     groups: [],
     paymentsEnabled: false,

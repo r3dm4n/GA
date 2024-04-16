@@ -1,10 +1,9 @@
-import { ObjectId } from 'mongodb'
 import { Plate } from './menu'
 import { Tax } from './tax'
 import { WorkingDays } from './working-days'
 
 export interface Presence {
-    _id: ObjectId | null
+    id: string | null
     uid: string
     childId: string
     date: string
@@ -19,7 +18,7 @@ export interface Presence {
 }
 
 export const INITIAL_PRESENCE: Presence = {
-    _id: null,
+    id: null,
     uid: '',
     childId: '',
     isPresent: false,

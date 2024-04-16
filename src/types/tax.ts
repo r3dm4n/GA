@@ -1,7 +1,7 @@
-import { ObjectId } from 'mongodb'
+import { generateUUID } from '../lib/helpers'
 
 export interface Tax {
-    _id: ObjectId
+    id: string
     cif: string
     mealPerDay: number
     tuition: number
@@ -14,7 +14,7 @@ export interface Tax {
 }
 
 export interface Company {
-    _id: ObjectId
+    id: string
     name: string
     cif: string
     J: string
@@ -29,7 +29,7 @@ export interface TaxItem {
 }
 
 export const INITIAL_TAX: Tax = {
-    _id: new ObjectId(),
+    id: generateUUID(),
     cif: '',
     mealPerDay: 0,
     tuition: 0,

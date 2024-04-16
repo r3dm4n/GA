@@ -1,9 +1,9 @@
-import { ObjectId } from 'mongodb'
+import { generateUUID } from '../lib/helpers'
 import { Metadata } from './metadata'
 import { Child, User } from './user'
 
 export interface Group extends Metadata {
-    _id: ObjectId
+    id: string
     sortId: number
     name: string
     imageUrl: string | null
@@ -11,7 +11,7 @@ export interface Group extends Metadata {
     children: Child[]
 }
 export const INITIAL_GROUP: Group = {
-    _id: new ObjectId(),
+    id: generateUUID(),
     sortId: 0,
     name: '',
     teachers: [],
