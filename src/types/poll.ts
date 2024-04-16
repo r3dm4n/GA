@@ -1,11 +1,14 @@
+import { ObjectId } from 'mongodb'
+
 export interface Choice {
-    _id: string
+    _id: ObjectId
     text: string
     votes: number
     votedBy: string[]
 }
 
 export interface Poll {
+    _id: ObjectId
     choices: Choice[]
     totalVotes: number
     createdAt: string
@@ -14,6 +17,7 @@ export interface Poll {
 }
 
 export const INITIAL_POLL: Poll = {
+    _id: new ObjectId(),
     choices: [],
     totalVotes: 0,
     createdAt: new Date().toISOString(),

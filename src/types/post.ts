@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb'
 import { Attachment } from './attachment'
 import { Comment } from './comment'
 import { Group } from './group'
@@ -10,7 +11,7 @@ export enum PostType {
 }
 
 export interface Post extends Metadata {
-    _id: string | null
+    _id: ObjectId | null
     type: PostType
     groups: Group[]
     body: string

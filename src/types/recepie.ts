@@ -1,5 +1,7 @@
+import { ObjectId } from 'mongodb'
+
 export interface Recepie {
-    _id: string | null
+    _id: ObjectId | null
     name: string
     ingredients: Ingredient[]
     macros: Macros
@@ -7,7 +9,7 @@ export interface Recepie {
 }
 
 export interface Ingredient {
-    _id: string | null
+    _id: ObjectId | null
     name: string
     description: string
     quantity: number

@@ -1,9 +1,10 @@
+import { ObjectId } from 'mongodb'
 import { Plate } from './menu'
 import { Tax } from './tax'
 import { WorkingDays } from './working-days'
 
 export interface Presence {
-    _id: string | null
+    _id: ObjectId | null
     uid: string
     childId: string
     date: string

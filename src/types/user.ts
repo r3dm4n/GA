@@ -1,4 +1,4 @@
-import { generateUUID } from '../lib/helpers'
+import { ObjectId } from 'mongodb'
 import { Group, INITIAL_GROUP } from './group'
 import { Ipcam } from './ipcam'
 import { Metadata } from './metadata'
@@ -18,7 +18,7 @@ export interface Human {
 }
 
 export interface Adult extends Human, Metadata {
-    _id: string
+    _id: ObjectId
     uid: string
     phoneNumber: string
     state: string
@@ -29,7 +29,7 @@ export interface Adult extends Human, Metadata {
 }
 
 export interface Child extends Human, Metadata {
-    _id: string
+    _id: ObjectId
     uid: string
     avatar: string | null
     blurhash: string | null
@@ -42,7 +42,7 @@ export interface Child extends Human, Metadata {
 }
 
 export interface User extends Metadata {
-    _id: string | null
+    _id: ObjectId | null
     uid: string
     email: string
     username: string
@@ -89,7 +89,7 @@ export interface DecodedUser {
 }
 
 export const INITIAL_CHILD: Child = {
-    _id: '',
+    _id: new ObjectId(),
     uid: '',
     gender: null,
     avatar: null,
@@ -111,7 +111,7 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
-    _id: '',
+    _id: new ObjectId(),
     uid: '',
     gender: null,
     invoicePayer: false,
@@ -156,7 +156,7 @@ export const INITIAL_USER: User = {
 export const generateAdult = (): Adult => {
     return {
         ...INITIAL_PARENT,
-        _id: generateUUID(),
+        _id: new ObjectId(),
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
     }
@@ -165,7 +165,7 @@ export const generateAdult = (): Adult => {
 export const generateChild = (): Child => {
     return {
         ...INITIAL_CHILD,
-        _id: generateUUID(),
+        _id: new ObjectId(),
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
     }
@@ -177,7 +177,7 @@ export const generateUser = (): User => {
         children: [
             {
                 ...INITIAL_CHILD,
-                _id: generateUUID(),
+                _id: new ObjectId(),
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
@@ -188,4 +188,3 @@ export const generateUser = (): User => {
         updatedAt: new Date().toISOString(),
     }
 }
-

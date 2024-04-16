@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb'
 import { Recepie } from './recepie'
 
 export type MealType = 'breakfast' | 'lunch' | 'snack'
@@ -9,7 +10,7 @@ export interface Meal {
 }
 
 export interface Menu {
-    _id: string
+    _id: ObjectId
     day: number
     dayOfWeek: string
     meals: Meal[]

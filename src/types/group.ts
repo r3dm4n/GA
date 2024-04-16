@@ -1,8 +1,9 @@
+import { ObjectId } from 'mongodb'
 import { Metadata } from './metadata'
 import { Child, User } from './user'
 
 export interface Group extends Metadata {
-    _id: string
+    _id: ObjectId
     sortId: number
     name: string
     imageUrl: string | null
@@ -10,7 +11,7 @@ export interface Group extends Metadata {
     children: Child[]
 }
 export const INITIAL_GROUP: Group = {
-    _id: '',
+    _id: new ObjectId(),
     sortId: 0,
     name: '',
     teachers: [],
