@@ -1,26 +1,28 @@
 export interface Thumbnail {
-    id: string
+    id: number
     url: string
-    favorite: boolean
     blurhash: string
+    favorite: boolean
+    videoId: number
 }
 
 export interface Video {
+    id: number
+    attachmentId: number
     optimized: string
     original: string
     thumbnails: Thumbnail[]
 }
 
 export interface Attachment {
-    id: string | null
-    sortId: number
-    postIds: []
+    id: number
+    postId: number
     fileName: string
     imageUrl: string
-    video: Video | null
     blurhash: string
     width: number
     height: number
     type: 'image' | 'video'
+    video: Video | null
     file?: Express.Multer.File
 }

@@ -1,7 +1,7 @@
 export interface Ipcam {
-    id: string
+    id: number
     name: string
-    live: boolean
-    message: string
     url: string
+    message: string
+    live: boolean
 }

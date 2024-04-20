@@ -51,7 +51,7 @@ export const INITIAL_PRESENCE: Presence = {
 
 export interface ChildPresenceReport {
     uid: string
-    childId: string
+    childId: number
     displayName: string
     presenceCount: number
     absenceCount: number
