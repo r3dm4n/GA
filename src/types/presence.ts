@@ -1,25 +1,25 @@
+import { Group } from './group'
 import { Plate } from './menu'
+import { Metadata } from './metadata'
 import { Tax } from './tax'
+import { Child } from './user'
 import { WorkingDays } from './working-days'
 
-export interface Presence {
-    id: string | null
-    uid: string
+export interface Presence extends Metadata {
+    id: number
     childId: string
+    child?: Child
     date: string
-    timestamp: Date
-    sleep: number
-    plates: Plate[]
     isPresent: boolean
     groupId: string
-    displayName?: string
-    avatar?: string
-    tokens?: string[]
+    group?: Group
+
+    sleep: number
+    plates: Plate[]
 }
 
 export const INITIAL_PRESENCE: Presence = {
-    id: null,
-    uid: '',
+    id: -1,
     childId: '',
     isPresent: false,
     sleep: 0,
@@ -44,10 +44,9 @@ export const INITIAL_PRESENCE: Presence = {
         },
     ],
     date: new Date().toISOString().slice(0, 10),
-    timestamp: new Date(),
     groupId: 'PUBLIC',
-    displayName: undefined,
-    tokens: undefined,
+    createdAt: '',
+    updatedAt: '',
 }
 
 export interface ChildPresenceReport {

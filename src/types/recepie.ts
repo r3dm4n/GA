@@ -1,12 +1,14 @@
+import { Metadata } from './metadata'
+
 export interface Recepie {
-    id: string | null
+    id: number
     name: string
     ingredients: Ingredient[]
     macros: Macros
     calories: number
 }
 
-export interface Ingredient {
+export interface Ingredient extends Metadata {
     id: string | null
     name: string
     description: string
@@ -15,10 +17,10 @@ export interface Ingredient {
     macros: Macros
     additives: string
     alergens: string
-    frozen: boolean
+    isFrozen: boolean
 }
 
-export interface Macros {
+export interface Macros extends Metadata {
     fats: number
     saturatedFats: number
     carbohydrates: number
@@ -34,10 +36,12 @@ export const INITIAL_MACROS: Macros = {
     sugars: 0,
     proteins: 0,
     salt: 0,
+    createdAt: '',
+    updatedAt: '',
 }
 
 export const INITIAL_RECEIPE: Recepie = {
-    id: null,
+    id: 0,
     name: '',
     ingredients: [],
     macros: INITIAL_MACROS,
@@ -53,5 +57,7 @@ export const INITIAL_INGREDIENT: Ingredient = {
     macros: INITIAL_MACROS,
     additives: '',
     alergens: '',
-    frozen: false,
+    isFrozen: false,
+    createdAt: '',
+    updatedAt: '',
 }
