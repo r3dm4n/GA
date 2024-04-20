@@ -142,13 +142,22 @@ export const formatTimeAgoDisplay = (str: string): string => {
         .replace('an', 'a')
 }
 
-export const generateUUID = (digits = 12) => {
+export const generateUUID = (digits = 12): string => {
     let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     let uuid = []
     for (let i = 0; i < digits; i++) {
         uuid.push(str[Math.floor(Math.random() * str.length)])
     }
     return uuid.join('')
+}
+
+export const generateNumberID = (digits = 12): number => {
+    let str = '0123456789'
+    let uuid = []
+    for (let i = 0; i < digits; i++) {
+        uuid.push(str[Math.floor(Math.random() * str.length)])
+    }
+    return Number(uuid.join(''))
 }
 
 export const POST_LIMIT = 10

@@ -13,8 +13,7 @@ export interface Config {
     groups: Group[]
     companies: Company[]
     taxes: Tax[]
-    workingDays: WorkingDays[]
-    paymentsEnabled: boolean
+    monthWorkingDays: WorkingDays[]
     tags: string[]
 }
 
@@ -22,9 +21,8 @@ export const INITIAL_CONFIG: Config = {
     id: generateUUID(),
     name: '',
     groups: [],
-    paymentsEnabled: false,
     tags: [],
     companies: [],
-    workingDays: [],
+    monthWorkingDays: [],
     taxes: [],
 }

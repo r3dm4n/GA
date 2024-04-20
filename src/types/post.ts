@@ -3,6 +3,7 @@ import { Comment } from './comment'
 import { Group } from './group'
 import { Metadata } from './metadata'
 import { Poll } from './poll'
+import { INITIAL_USER, User } from './user'
 
 export enum PostType {
     Post,
@@ -12,22 +13,32 @@ export enum PostType {
 export interface Post extends Metadata {
     id: string | null
     type: PostType
-    groups: Group[]
     body: string
-    attachments: Attachment[]
-    reviewed: boolean
-    author: string
-    likedBy: string[]
-    bookmarkedBy: string[]
-    comments: Comment[]
-    commentsOn: boolean
-    liveAt: string | null
-    poll: Poll | null
-    sendNotification: boolean
+
     numberOfLikes: number
     numberOfBookmarks: number
     numberOfComments: number
     numberOfViews: number
+    liveAt: string | null
+    sendNotification: boolean
+    commentsOn: boolean
+    tags: Tag[]
+    groups: Group[]
+    attachments: Attachment[]
+    reviewed: boolean
+    authorId: number
+    author?: User
+    likedBy: Partial<User[]>
+    bookmarkedBy: Partial<User[]>
+    comments: Comment[]
+    poll: Poll | null
+}
+
+export interface Tag {
+    id: number
+    name: string
+    configId: number
+    posts: Post[]
 }
 
 export const INITIAL_POST: Post = {
@@ -37,7 +48,6 @@ export const INITIAL_POST: Post = {
     body: '',
     attachments: [],
     reviewed: false,
-    author: '',
     likedBy: [],
     bookmarkedBy: [],
     comments: [],
@@ -49,6 +59,9 @@ export const INITIAL_POST: Post = {
     numberOfBookmarks: 0,
     numberOfComments: 0,
     numberOfViews: 0,
+    tags: [],
+    authorId: 0,
+    author: INITIAL_USER,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
 }

@@ -1,71 +1,69 @@
-import { generateUUID } from '../lib/helpers'
-import { Group, INITIAL_GROUP } from './group'
+import { generateNumberID } from '../lib/helpers'
+import { Group } from './group'
 import { Ipcam } from './ipcam'
 import { Metadata } from './metadata'
+import { Choice } from './poll'
 import { Post } from './post'
 import { TaxItem } from './tax'
 
 type Gender = 'M' | 'F'
 
+export interface User extends Metadata {
+    id: number | null
+    email: string
+    username: string
+    displayName: string | null
+    avatar: string | null
+    blurhash: string | null
+    role: Role
+    disabled: boolean
+    canComment: boolean
+    tokens: string[]
+    groups: Group[]
+    ipcams: Ipcam[]
+    children: Child[]
+    parents: Adult[]
+    emergency: Adult[]
+    votedChoices: Choice[]
+    bookmarkedPosts: Post[]
+    likedPosts: Post[]
+}
+
 export interface Human {
     firstName: string
     lastName: string
     cnp: string
-    gender: Gender | null
+    gender: Gender
     address: string
     nationality?: string
     citizenship?: string
 }
 
 export interface Adult extends Human, Metadata {
-    id: string
-    uid: string
-    phoneNumber: string
-    state: string
-    city: string
-    country: string
-    signature?: string
+    id: number
+    phone: number
     invoicePayer: boolean
+    parentId: number
+    emergencyId: number
 }
 
 export interface Child extends Human, Metadata {
-    id: string
-    uid: string
+    id: number
+    birthday: string
     avatar: string | null
     blurhash: string | null
-    placeOfBirth: string
-    group: Group
-    birthday: string
     schedule: Schedule
     cif: string
+    placeOfBirth: string
     extras: TaxItem[]
-}
-
-export interface User extends Metadata {
-    id: string | null
-    uid: string
-    email: string
-    username: string
-    displayName: string
-    avatar: string | null
-    blurhash: string | null
-    password: string
-    role: Role
-    parents: Adult[]
-    emergencyContacts: Adult[]
-    children: Child[]
-    groups: Group[]
-    tokens: string[]
-    ipcams: Ipcam[]
-    disabled: boolean
-    canComment: boolean
-    bookmarks: Post[]
+    userId: number
+    groupId: number
 }
 
 export enum Role {
-    PARENT = 'PARENT',
-    TEACHER = 'TEACHER',
     ADMIN = 'ADMIN',
+    TEACHER = 'TEACHER',
+    PARENT = 'PARENT',
 }
 
 export enum Schedule {
@@ -82,92 +80,84 @@ export enum UserType {
 
 export interface DecodedUser {
     uid: string
+    username: string
     email: string
     createdAt: string
     role: Role
-    groupIds: string[]
+    groupIds: number[]
 }
 
 export const INITIAL_CHILD: Child = {
-    id: generateUUID(),
-    uid: '',
-    gender: null,
+    id: generateNumberID(),
+
+    nationality: 'Romana',
+    birthday: '',
     avatar: null,
     blurhash: null,
-    address: '',
-    cnp: '',
-    placeOfBirth: '',
-    group: INITIAL_GROUP,
-    birthday: '',
     schedule: Schedule.LONG,
+    cif: '',
+    placeOfBirth: '',
+    extras: [],
+    userId: 0,
+    groupId: 0,
     firstName: '',
     lastName: '',
+    cnp: '',
+    gender: 'M',
+    address: '',
     createdAt: '',
     updatedAt: '',
-    cif: '',
-    extras: [],
-    citizenship: 'Romana',
-    nationality: 'Romana',
 }
 
 export const INITIAL_PARENT: Adult = {
-    id: generateUUID(),
-    uid: '',
-    gender: null,
+    id: generateNumberID(),
+    phone: 0,
     invoicePayer: false,
-    phoneNumber: '',
-    address: '',
-    state: '',
-    city: '',
-    country: '',
+    parentId: 0,
+    emergencyId: 0,
     firstName: '',
     lastName: '',
     cnp: '',
+    gender: 'M',
+    address: '',
     createdAt: '',
     updatedAt: '',
-    signature: '',
-    citizenship: 'Romana',
-    nationality: 'Romana',
 }
 
 export const INITIAL_USER: User = {
     id: null,
+    email: '',
+    username: '',
+    displayName: null,
     avatar: null,
     blurhash: null,
-    parents: [],
-    children: [],
-    emergencyContacts: [],
-    uid: '',
-    displayName: '',
-    username: '',
-    email: '',
-    password: '',
     role: Role.PARENT,
-    groups: [],
-    tokens: [],
-    ipcams: [],
     disabled: false,
-    canComment: true,
+    canComment: false,
+    tokens: [],
+    groups: [],
+    ipcams: [],
+    children: [],
+    parents: [],
+    emergency: [],
+    votedChoices: [],
+    bookmarkedPosts: [],
+    likedPosts: [],
     createdAt: '',
     updatedAt: '',
-    bookmarks: [],
 }
 
 export const generateAdult = (): Adult => {
     return {
         ...INITIAL_PARENT,
-        id: generateUUID(),
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+        id: generateNumberID(),
     }
 }
 
 export const generateChild = (): Child => {
     return {
         ...INITIAL_CHILD,
-        id: generateUUID(),
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+        id: generateNumberID(),
     }
 }
 
@@ -177,14 +167,10 @@ export const generateUser = (): User => {
         children: [
             {
                 ...INITIAL_CHILD,
-                id: generateUUID(),
-                createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString(),
+                id: generateNumberID(),
             },
         ],
         parents: [generateAdult(), generateAdult()],
-        emergencyContacts: [generateAdult()],
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+        emergency: [generateAdult()],
     }
 }
