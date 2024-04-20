@@ -1,22 +1,25 @@
-import { generateUUID } from '../lib/helpers'
+import { Config } from './config'
 import { Metadata } from './metadata'
+import { Post } from './post'
+import { Presence } from './presence'
 import { Child, User } from './user'
 
 export interface Group extends Metadata {
-    id: string
-    sortId: number
+    id: number
     name: string
-    imageUrl: string | null
-    teachers: User[]
+    users: User[]
+    posts: Post[]
     children: Child[]
+    presences: Presence[]
+    config?: Config
 }
 export const INITIAL_GROUP: Group = {
-    id: generateUUID(),
-    sortId: 0,
+    id: -1,
     name: '',
-    teachers: [],
+    users: [],
+    posts: [],
     children: [],
-    imageUrl: null,
+    presences: [],
     createdAt: '',
     updatedAt: '',
 }

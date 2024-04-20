@@ -3,8 +3,8 @@ import { Post } from './post'
 import { User } from './user'
 
 export interface Comment extends Metadata {
-    id: string
-    postId: string
+    id: number
+    postId: number
     post?: Post
     userId: Number
     user?: User

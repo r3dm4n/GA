@@ -1,5 +1,5 @@
-import { generateUUID } from '../lib/helpers'
 import { Group } from './group'
+import { Tag } from './post'
 import { Company, Tax } from './tax'
 import { WorkingDays } from './working-days'
 
@@ -8,17 +8,17 @@ export interface Payments {
 }
 
 export interface Config {
-    id: string
+    id: number
     name: string
     groups: Group[]
     companies: Company[]
     taxes: Tax[]
     monthWorkingDays: WorkingDays[]
-    tags: string[]
+    tags: Tag[]
 }
 
 export const INITIAL_CONFIG: Config = {
-    id: generateUUID(),
+    id: -1,
     name: '',
     groups: [],
     tags: [],

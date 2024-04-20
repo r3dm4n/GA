@@ -1,4 +1,3 @@
-import { generateNumberID } from '../lib/helpers'
 import { Group } from './group'
 import { Ipcam } from './ipcam'
 import { Metadata } from './metadata'
@@ -88,7 +87,7 @@ export interface DecodedUser {
 }
 
 export const INITIAL_CHILD: Child = {
-    id: generateNumberID(),
+    id: -1,
 
     nationality: 'Romana',
     birthday: '',
@@ -110,7 +109,7 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
-    id: generateNumberID(),
+    id: -1,
     phone: 0,
     invoicePayer: false,
     parentId: 0,
@@ -150,14 +149,14 @@ export const INITIAL_USER: User = {
 export const generateAdult = (): Adult => {
     return {
         ...INITIAL_PARENT,
-        id: generateNumberID(),
+        id: -1,
     }
 }
 
 export const generateChild = (): Child => {
     return {
         ...INITIAL_CHILD,
-        id: generateNumberID(),
+        id: -1,
     }
 }
 
@@ -167,7 +166,7 @@ export const generateUser = (): User => {
         children: [
             {
                 ...INITIAL_CHILD,
-                id: generateNumberID(),
+                id: -1,
             },
         ],
         parents: [generateAdult(), generateAdult()],

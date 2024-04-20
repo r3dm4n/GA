@@ -1,4 +1,3 @@
-import { generateNumberID } from '../lib/helpers'
 import { Metadata } from './metadata'
 import { User } from './user'
 
@@ -20,7 +19,7 @@ export interface Poll {
 }
 
 export const INITIAL_POLL: Poll = {
-    id: generateNumberID(),
+    id: -1,
     postId: null,
     choices: [],
     totalVotes: 0,
