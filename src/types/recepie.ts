@@ -1,7 +1,7 @@
 import { Metadata } from './metadata'
 
 export interface Recepie {
-    id: number
+    id: string
     name: string
     ingredients: Ingredient[]
     macros: Macros
@@ -41,7 +41,7 @@ export const INITIAL_MACROS: Macros = {
 }
 
 export const INITIAL_RECEIPE: Recepie = {
-    id: 0,
+    id: '',
     name: '',
     ingredients: [],
     macros: INITIAL_MACROS,

@@ -8,7 +8,7 @@ export interface Payments {
 }
 
 export interface Config {
-    id: number
+    id: string
     name: string
     groups: Group[]
     companies: Company[]
@@ -18,7 +18,7 @@ export interface Config {
 }
 
 export const INITIAL_CONFIG: Config = {
-    id: -1,
+    id: '',
     name: '',
     groups: [],
     tags: [],

@@ -5,7 +5,7 @@ import { Presence } from './presence'
 import { Child, User } from './user'
 
 export interface Group extends Metadata {
-    id: number
+    id: string
     name: string
     users: User[]
     posts: Post[]
@@ -14,7 +14,7 @@ export interface Group extends Metadata {
     config?: Config
 }
 export const INITIAL_GROUP: Group = {
-    id: -1,
+    id: '',
     name: '',
     users: [],
     posts: [],

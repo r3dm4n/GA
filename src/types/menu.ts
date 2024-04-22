@@ -3,7 +3,7 @@ import { Recepie } from './recepie'
 export type MealType = 'breakfast' | 'lunch' | 'snack'
 
 export interface Menu {
-    id: number
+    id: string
     day: number
     dayOfWeek: string
     meals: Meal[]

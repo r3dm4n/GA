@@ -26,7 +26,7 @@ export interface Post extends Metadata {
     groups: Group[]
     attachments: Attachment[]
     reviewed: boolean
-    authorId: number
+    authorId: string
     author?: User
     likedBy: Partial<User[]>
     bookmarkedBy: Partial<User[]>
@@ -35,9 +35,9 @@ export interface Post extends Metadata {
 }
 
 export interface Tag {
-    id: number
+    id: string
     name: string
-    configId: number
+    configId: string
     posts: Post[]
 }
 
@@ -60,7 +60,7 @@ export const INITIAL_POST: Post = {
     numberOfComments: 0,
     numberOfViews: 0,
     tags: [],
-    authorId: 0,
+    authorId: '',
     author: INITIAL_USER,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

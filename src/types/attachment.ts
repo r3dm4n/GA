@@ -1,22 +1,22 @@
 export interface Thumbnail {
-    id: number
+    id: string
     url: string
     blurhash: string
     favorite: boolean
-    videoId: number
+    videoId: string
 }
 
 export interface Video {
-    id: number
-    attachmentId: number
+    id: string
+    attachmentId: string
     optimized: string
     original: string
     thumbnails: Thumbnail[]
 }
 
 export interface Attachment {
-    id: number
-    postId: number
+    id: string
+    postId: string
     fileName: string
     imageUrl: string
     blurhash: string

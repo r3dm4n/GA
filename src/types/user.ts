@@ -8,24 +8,28 @@ import { TaxItem } from './tax'
 type Gender = 'M' | 'F'
 
 export interface User extends Metadata {
-    id: number | null
+    id: string | null
     email: string
     username: string
-    displayName: string | null
+    password: string
     avatar: string | null
     blurhash: string | null
     role: Role
     disabled: boolean
     canComment: boolean
     tokens: string[]
+
     groups: Group[]
     ipcams: Ipcam[]
     children: Child[]
-    parents: Adult[]
-    emergency: Adult[]
     votedChoices: Choice[]
+    writtenPosts: Post[]
     bookmarkedPosts: Post[]
     likedPosts: Post[]
+    parents: Adult[]
+    emergency: Adult[]
+    createdAt: string
+    updatedAt: string
 }
 
 export interface Human {
@@ -39,15 +43,15 @@ export interface Human {
 }
 
 export interface Adult extends Human, Metadata {
-    id: number
+    id: string | null
     phone: number
     invoicePayer: boolean
-    parentId: number
-    emergencyId: number
+    parentId: string
+    emergencyId: string
 }
 
 export interface Child extends Human, Metadata {
-    id: number
+    id: string | null
     birthday: string
     avatar: string | null
     blurhash: string | null
@@ -55,8 +59,8 @@ export interface Child extends Human, Metadata {
     cif: string
     placeOfBirth: string
     extras: TaxItem[]
-    userId: number
-    groupId: number
+    userId: string | null
+    groupId: string | null
 }
 
 export enum Role {
@@ -83,12 +87,11 @@ export interface DecodedUser {
     email: string
     createdAt: string
     role: Role
-    groupIds: number[]
+    groupIds: string[]
 }
 
 export const INITIAL_CHILD: Child = {
-    id: -1,
-
+    id: null,
     nationality: 'Romana',
     birthday: '',
     avatar: null,
@@ -97,8 +100,8 @@ export const INITIAL_CHILD: Child = {
     cif: '',
     placeOfBirth: '',
     extras: [],
-    userId: 0,
-    groupId: 0,
+    userId: null,
+    groupId: null,
     firstName: '',
     lastName: '',
     cnp: '',
@@ -109,11 +112,11 @@ export const INITIAL_CHILD: Child = {
 }
 
 export const INITIAL_PARENT: Adult = {
-    id: -1,
+    id: null,
     phone: 0,
     invoicePayer: false,
-    parentId: 0,
-    emergencyId: 0,
+    parentId: '',
+    emergencyId: '',
     firstName: '',
     lastName: '',
     cnp: '',
@@ -127,7 +130,6 @@ export const INITIAL_USER: User = {
     id: null,
     email: '',
     username: '',
-    displayName: null,
     avatar: null,
     blurhash: null,
     role: Role.PARENT,
@@ -140,23 +142,25 @@ export const INITIAL_USER: User = {
     parents: [],
     emergency: [],
     votedChoices: [],
+    writtenPosts: [],
     bookmarkedPosts: [],
     likedPosts: [],
     createdAt: '',
     updatedAt: '',
+    password: '',
 }
 
 export const generateAdult = (): Adult => {
     return {
         ...INITIAL_PARENT,
-        id: -1,
+        id: null,
     }
 }
 
 export const generateChild = (): Child => {
     return {
         ...INITIAL_CHILD,
-        id: -1,
+        id: null,
     }
 }
 
@@ -166,7 +170,7 @@ export const generateUser = (): User => {
         children: [
             {
                 ...INITIAL_CHILD,
-                id: -1,
+                id: null,
             },
         ],
         parents: [generateAdult(), generateAdult()],

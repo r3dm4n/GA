@@ -1,5 +1,5 @@
 export interface Ipcam {
-    id: number
+    id: string
     name: string
     url: string
     message: string

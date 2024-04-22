@@ -6,7 +6,7 @@ import { Child } from './user'
 import { WorkingDays } from './working-days'
 
 export interface Presence extends Metadata {
-    id: number
+    id: string | null
     childId: string
     child?: Child
     date: string
@@ -19,7 +19,7 @@ export interface Presence extends Metadata {
 }
 
 export const INITIAL_PRESENCE: Presence = {
-    id: -1,
+    id: null,
     childId: '',
     isPresent: false,
     sleep: 0,
@@ -51,7 +51,7 @@ export const INITIAL_PRESENCE: Presence = {
 
 export interface ChildPresenceReport {
     uid: string
-    childId: number
+    childId: string
     displayName: string
     presenceCount: number
     absenceCount: number
