@@ -1,20 +1,18 @@
 import { Attachment } from './attachment'
-import { Comment } from './comment'
 import { Group } from './group'
 import { Metadata } from './metadata'
 import { Poll } from './poll'
-import { INITIAL_USER, User } from './user'
+import { User } from './user'
 
 export enum PostType {
-    Post,
-    Story,
+    POST,
+    STORY,
 }
 
 export interface Post extends Metadata {
     id: string | null
     type: PostType
     body: string
-
     numberOfLikes: number
     numberOfBookmarks: number
     numberOfComments: number
@@ -22,15 +20,13 @@ export interface Post extends Metadata {
     liveAt: string | null
     sendNotification: boolean
     commentsOn: boolean
-    tags: Tag[]
-    groups: Group[]
-    attachments: Attachment[]
+    postTags: { tagId: Partial<Tag> }[]
+    postGroups: { groupId: Partial<Group> }[]
+    postLikes: { userId: Partial<User> }[]
+    postBookmarks: { userId: Partial<User> }[]
     reviewed: boolean
     authorId: string
-    author?: User
-    likedBy: Partial<User[]>
-    bookmarkedBy: Partial<User[]>
-    comments: Comment[]
+    attachments: Attachment[]
     poll: Poll | null
 }
 
@@ -43,14 +39,9 @@ export interface Tag {
 
 export const INITIAL_POST: Post = {
     id: null,
-    type: PostType.Post,
-    groups: [],
+    type: PostType.POST,
     body: '',
-    attachments: [],
     reviewed: false,
-    likedBy: [],
-    bookmarkedBy: [],
-    comments: [],
     commentsOn: true,
     liveAt: null,
     sendNotification: true,
@@ -59,9 +50,13 @@ export const INITIAL_POST: Post = {
     numberOfBookmarks: 0,
     numberOfComments: 0,
     numberOfViews: 0,
-    tags: [],
     authorId: '',
-    author: INITIAL_USER,
+
+    attachments: [],
+    postGroups: [],
+    postLikes: [],
+    postBookmarks: [],
+    postTags: [],
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
 }
