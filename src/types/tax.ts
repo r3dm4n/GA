@@ -16,7 +16,7 @@ export interface Tax {
 export interface Company {
     id: string
     name: string
-    CIF: string
+    cif: string
     J: string
     address: string
     type: CompanyType
