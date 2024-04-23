@@ -1,8 +1,6 @@
 import { Attachment } from './attachment'
-import { Group } from './group'
 import { Metadata } from './metadata'
 import { Poll } from './poll'
-import { User } from './user'
 
 export enum PostType {
     POST,
@@ -20,10 +18,10 @@ export interface Post extends Metadata {
     liveAt: string | null
     sendNotification: boolean
     commentsOn: boolean
-    postTags: { tagId: Partial<Tag> }[]
-    postGroups: { groupId: Partial<Group> }[]
-    postLikes: { userId: Partial<User> }[]
-    postBookmarks: { userId: Partial<User> }[]
+    postTags: { tagId: string }[]
+    postGroups: { groupId: string }[]
+    postLikes: { userId: string }[]
+    postBookmarks: { userId: string }[]
     reviewed: boolean
     authorId: string
     attachments: Attachment[]
