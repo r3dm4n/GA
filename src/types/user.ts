@@ -53,8 +53,7 @@ export interface User extends Metadata {
     writtenPosts: Post[]
     bookmarkedPosts: Post[]
     likedPosts: Post[]
-    parents: Adult[]
-    emergency: Adult[]
+    adults: Adult[]
     createdAt: string
     updatedAt: string
 }
@@ -148,8 +147,7 @@ export const INITIAL_USER: User = {
     groups: [],
     ipcams: [],
     children: [],
-    parents: [],
-    emergency: [],
+    adults: [],
     votedChoices: [],
     writtenPosts: [],
     bookmarkedPosts: [],
@@ -182,7 +180,6 @@ export const generateUser = (): User => {
                 id: null,
             },
         ],
-        parents: [generateAdult(), generateAdult()],
-        emergency: [generateAdult()],
+        adults: [generateAdult(), generateAdult()],
     }
 }

@@ -16,7 +16,7 @@ export interface Tax {
 export interface Company {
     id: string
     name: string
-    cif: string
+    CIF: string
     J: string
     address: string
     type: CompanyType
@@ -41,10 +41,12 @@ export const INITIAL_TAX: Tax = {
     total: 0,
 }
 
-type CompanyType =
-    | 'nursery'
-    | 'kindergarten'
-    | 'school'
-    | 'gymnasium'
-    | 'high-school'
-    | 'university'
+export enum CompanyType {
+    NURSERY = 'NURSERY',
+    KINDERGARTEN = 'KINDERGARTEN',
+    SCHOOL = 'SCHOOL',
+    GYMNASIUM = 'GYMNASIUM',
+    HIGHSCHOOL = 'HIGHSCHOOL',
+    UNIVERSITY = 'UNIVERSITY',
+}
+

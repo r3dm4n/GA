@@ -3,5 +3,5 @@ export interface Ipcam {
     name: string
     url: string
     message: string
-    live: boolean
+    isLive: boolean
 }
