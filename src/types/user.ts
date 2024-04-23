@@ -5,10 +5,35 @@ import { Choice } from './poll'
 import { Post } from './post'
 import { TaxItem } from './tax'
 
+
 export enum Gender {
     M = 'M',
     F = 'F',
 }
+
+export enum AdultType {
+    PARENT = 'PARENT',
+    EMERGENCY = 'EMERGENCY',
+}
+
+export enum Role {
+    ADMIN = 'ADMIN',
+    TEACHER = 'TEACHER',
+    PARENT = 'PARENT',
+}
+
+export enum Schedule {
+    LONG = 'LONG',
+    SHORT = 'SHORT',
+    SHORT_WITH_LUNCH = 'SHORT_WITH_LUNCH',
+}
+
+export enum UserType {
+    ALL = 'ALL',
+    ACTIVE = 'ACTIVE',
+    DISABLED = 'DISABLED',
+}
+
 
 export interface User extends Metadata {
     id: string | null
@@ -21,7 +46,6 @@ export interface User extends Metadata {
     disabled: boolean
     canComment: boolean
     tokens: string[]
-
     groups: Group[]
     ipcams: Ipcam[]
     children: Child[]
@@ -66,29 +90,6 @@ export interface Child extends Human, Metadata {
     groupId: string | null
 }
 
-export enum AdultType {
-    PARENT = 'PARENT',
-    EMERGENCY = 'EMERGENCY',
-}
-
-export enum Role {
-    ADMIN = 'ADMIN',
-    TEACHER = 'TEACHER',
-    PARENT = 'PARENT',
-}
-
-export enum Schedule {
-    LONG = 'LONG',
-    SHORT = 'SHORT',
-    SHORT_WITH_LUNCH = 'SHORT_WITH_LUNCH',
-}
-
-export enum UserType {
-    ALL = 'ALL',
-    ACTIVE = 'ACTIVE',
-    DISABLED = 'DISABLED',
-}
-
 export interface DecodedUser {
     uid: string
     username: string
@@ -113,7 +114,7 @@ export const INITIAL_CHILD: Child = {
     firstName: '',
     lastName: '',
     cnp: '',
-    gender: 'M',
+    gender: Gender.M,
     address: '',
     createdAt: '',
     updatedAt: '',
@@ -126,7 +127,7 @@ export const INITIAL_PARENT: Adult = {
     phone: 0,
     invoicePayer: false,
     cnp: '',
-    gender: 'M',
+    gender: Gender.M,
     address: '',
     type: AdultType.PARENT,
     userId: '',
