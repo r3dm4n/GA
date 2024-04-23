@@ -5,7 +5,10 @@ import { Choice } from './poll'
 import { Post } from './post'
 import { TaxItem } from './tax'
 
-type Gender = 'M' | 'F'
+export enum Gender {
+    M = 'M',
+    F = 'F',
+}
 
 export interface User extends Metadata {
     id: string | null
@@ -44,10 +47,10 @@ export interface Human {
 
 export interface Adult extends Human, Metadata {
     id: string | null
+    userId: string
+    type: AdultType
     phone: number
     invoicePayer: boolean
-    parentId: string
-    emergencyId: string
 }
 
 export interface Child extends Human, Metadata {
@@ -61,6 +64,11 @@ export interface Child extends Human, Metadata {
     extras: TaxItem[]
     userId: string | null
     groupId: string | null
+}
+
+export enum AdultType {
+    PARENT = 'PARENT',
+    EMERGENCY = 'EMERGENCY',
 }
 
 export enum Role {
@@ -113,15 +121,15 @@ export const INITIAL_CHILD: Child = {
 
 export const INITIAL_PARENT: Adult = {
     id: null,
-    phone: 0,
-    invoicePayer: false,
-    parentId: '',
-    emergencyId: '',
     firstName: '',
     lastName: '',
+    phone: 0,
+    invoicePayer: false,
     cnp: '',
     gender: 'M',
     address: '',
+    type: AdultType.PARENT,
+    userId: '',
     createdAt: '',
     updatedAt: '',
 }
