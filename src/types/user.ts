@@ -1,10 +1,8 @@
-import { Group } from './group'
 import { Ipcam } from './ipcam'
 import { Metadata } from './metadata'
 import { Choice } from './poll'
 import { Post } from './post'
 import { TaxItem } from './tax'
-
 
 export enum Gender {
     M = 'M',
@@ -34,7 +32,6 @@ export enum UserType {
     DISABLED = 'DISABLED',
 }
 
-
 export interface User extends Metadata {
     id: string | null
     email: string
@@ -46,8 +43,8 @@ export interface User extends Metadata {
     disabled: boolean
     canComment: boolean
     tokens: string[]
-    groups: Group[]
-    ipcams: Ipcam[]
+    userGroups: { groupId: string }[]
+    userIpcams: { ipcamId: string; ipcams?: Ipcam }[]
     children: Child[]
     votedChoices: Choice[]
     writtenPosts: Post[]
