@@ -19,7 +19,7 @@ export interface Plate {
     type: MealType
     percent: number
     calories: number
-    createdAt: string | null
+    created: string | null
 }
 
 export interface Eat {

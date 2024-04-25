@@ -20,6 +20,6 @@ export const INITIAL_GROUP: Group = {
     posts: [],
     children: [],
     presences: [],
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
 }

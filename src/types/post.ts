@@ -1,6 +1,8 @@
 import { Attachment } from './attachment'
+import { Group } from './group'
 import { Metadata } from './metadata'
 import { Poll } from './poll'
+import { User } from './user'
 
 export enum PostType {
     POST,
@@ -18,14 +20,21 @@ export interface Post extends Metadata {
     liveAt: string | null
     sendNotification: boolean
     commentsOn: boolean
-    postTags: { tagId: string }[]
-    postGroups: { groupId: string }[]
-    postLikes: { userId: string }[]
-    postBookmarks: { userId: string }[]
+    tags: string[]
+    groups: string[]
+    likes: string[]
+    bookmarks: string[]
     reviewed: boolean
     authorId: string
-    attachments: Attachment[]
+    attachments: string[]
     poll: Poll | null
+    expand: {
+        attachments: Attachment[]
+        tags: Tag[]
+        groups: Group[]
+        likes: User[]
+        bookmarks: User[]
+    }
 }
 
 export interface Tag {
@@ -49,18 +58,24 @@ export const INITIAL_POST: Post = {
     numberOfComments: 0,
     numberOfViews: 0,
     authorId: '',
-
+    tags: [],
+    groups: [],
+    likes: [],
+    bookmarks: [],
     attachments: [],
-    postGroups: [],
-    postLikes: [],
-    postBookmarks: [],
-    postTags: [],
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    expand: {
+        attachments: [],
+        tags: [],
+        groups: [],
+        likes: [],
+        bookmarks: [],
+    },
+    created: new Date().toISOString(),
+    updated: new Date().toISOString(),
 }
 
 export interface GetPostDto {
-    createdAt: string | null
+    created: string | null
     reviewed: boolean | null
     limit: number
 }
@@ -68,5 +83,5 @@ export interface GetPostDto {
 export interface GetPostResponse {
     posts: Post[]
     hasNext: boolean
-    createdAt: string | null
+    created: string | null
 }

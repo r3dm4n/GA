@@ -65,14 +65,14 @@ export interface OblioInvoiceRes {
 
 export interface GetInvoiceDto {
     email: string
-    createdAt: string | null
+    created: string | null
     limit: number
 }
 
 export interface GetInvoicesRes {
     invoices: OblioInvoice[]
     hasNext: boolean
-    createdAt: string
+    created: string
 }
 
 export interface OblioInvoiceState {
@@ -83,7 +83,7 @@ export interface OblioInvoiceState {
     refreshing: boolean
     paginating: boolean
     hasNext: boolean
-    createdAt: string | undefined
+    created: string | undefined
     error: string | undefined
 }
 

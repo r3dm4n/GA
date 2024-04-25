@@ -36,8 +36,8 @@ export const INITIAL_MACROS: Macros = {
     sugars: 0,
     proteins: 0,
     salt: 0,
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
 }
 
 export const INITIAL_RECEIPE: Recepie = {
@@ -58,6 +58,6 @@ export const INITIAL_INGREDIENT: Ingredient = {
     additives: '',
     alergens: '',
     isFrozen: false,
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
 }

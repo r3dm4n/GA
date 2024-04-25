@@ -1,7 +1,6 @@
+import { Group } from './group'
 import { Ipcam } from './ipcam'
 import { Metadata } from './metadata'
-import { Choice } from './poll'
-import { Post } from './post'
 import { TaxItem } from './tax'
 
 export enum Gender {
@@ -36,23 +35,27 @@ export interface User extends Metadata {
     id: string | null
     email: string
     username: string
-    password: string
+    password: string | null
     avatar: string | null
     blurhash: string | null
     role: Role
     disabled: boolean
     canComment: boolean
     tokens: string[]
-    userGroups: { groupId: string }[]
-    userIpcams: { ipcamId: string; ipcams?: Ipcam }[]
-    children: Child[]
-    votedChoices: Choice[]
-    writtenPosts: Post[]
-    bookmarkedPosts: Post[]
-    likedPosts: Post[]
-    adults: Adult[]
-    createdAt: string
-    updatedAt: string
+    groups: string[]
+    ipcams: string[]
+    children: string[]
+    adults: string[]
+    expand: {
+        groups: Group[]
+        ipcams: Ipcam[]
+        children: Child[]
+        adults: Adult[]
+    }
+    votedChoices: string[]
+    writtenPosts: string[]
+    bookmarkedPosts: string[]
+    likedPosts: string[]
 }
 
 export interface Human {
@@ -90,7 +93,7 @@ export interface DecodedUser {
     uid: string
     username: string
     email: string
-    createdAt: string
+    created: string
     role: Role
     groupIds: string[]
 }
@@ -112,8 +115,8 @@ export const INITIAL_CHILD: Child = {
     cnp: '',
     gender: Gender.M,
     address: '',
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
 }
 
 export const INITIAL_PARENT: Adult = {
@@ -127,8 +130,8 @@ export const INITIAL_PARENT: Adult = {
     address: '',
     type: AdultType.PARENT,
     userId: '',
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
 }
 
 export const INITIAL_USER: User = {
@@ -149,9 +152,15 @@ export const INITIAL_USER: User = {
     writtenPosts: [],
     bookmarkedPosts: [],
     likedPosts: [],
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
     password: '',
+    expand: {
+        groups: [],
+        ipcams: [],
+        children: [],
+        adults: [],
+    },
 }
 
 export const generateAdult = (): Adult => {
@@ -171,12 +180,12 @@ export const generateChild = (): Child => {
 export const generateUser = (): User => {
     return {
         ...INITIAL_USER,
-        children: [
-            {
-                ...INITIAL_CHILD,
-                id: null,
-            },
-        ],
-        adults: [generateAdult(), generateAdult()],
+        children: [],
+        expand: {
+            adults: [generateAdult(), generateAdult()],
+            groups: [],
+            ipcams: [],
+            children: [],
+        },
     }
 }

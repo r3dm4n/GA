@@ -28,25 +28,25 @@ export const INITIAL_PRESENCE: Presence = {
             percent: 0,
             calories: 0,
             type: 'breakfast',
-            createdAt: null,
+            created: null,
         },
         {
             percent: 0,
             calories: 0,
             type: 'lunch',
-            createdAt: null,
+            created: null,
         },
         {
             percent: 0,
             calories: 0,
             type: 'snack',
-            createdAt: null,
+            created: null,
         },
     ],
     date: new Date().toISOString().slice(0, 10),
     groupId: 'PUBLIC',
-    createdAt: '',
-    updatedAt: '',
+    created: '',
+    updated: '',
 }
 
 export interface ChildPresenceReport {

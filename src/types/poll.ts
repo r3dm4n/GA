@@ -8,7 +8,7 @@ export interface Poll {
     choices: Choice[]
     totalVotes: number
     postId: string
-    createdAt: string
+    created: string
     expiresAt: string
 }
 
@@ -25,6 +25,6 @@ export const INITIAL_POLL: Poll = {
     postId: '',
     choices: [],
     totalVotes: 0,
-    createdAt: new Date().toISOString(),
+    created: new Date().toISOString(),
     expiresAt: new Date().toISOString(),
 }
