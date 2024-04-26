@@ -1,6 +1,6 @@
 import { Group } from './group'
 import { Ipcam } from './ipcam'
-import { Metadata } from './metadata'
+import { INITIAL_METADATA, Metadata } from './metadata'
 import { TaxItem } from './tax'
 
 export enum Gender {
@@ -32,7 +32,6 @@ export enum UserType {
 }
 
 export interface User extends Metadata {
-    id: string | null
     email: string
     username: string
     password: string | null
@@ -69,7 +68,6 @@ export interface Human {
 }
 
 export interface Adult extends Human, Metadata {
-    id: string | null
     userId: string
     type: AdultType
     phone: number
@@ -77,7 +75,6 @@ export interface Adult extends Human, Metadata {
 }
 
 export interface Child extends Human, Metadata {
-    id: string | null
     birthday: string
     avatar: string | null
     blurhash: string | null
@@ -99,7 +96,6 @@ export interface DecodedUser {
 }
 
 export const INITIAL_CHILD: Child = {
-    id: null,
     nationality: 'Romana',
     birthday: '',
     avatar: null,
@@ -115,12 +111,11 @@ export const INITIAL_CHILD: Child = {
     cnp: '',
     gender: Gender.M,
     address: '',
-    created: '',
-    updated: '',
+
+    ...INITIAL_METADATA,
 }
 
 export const INITIAL_PARENT: Adult = {
-    id: null,
     firstName: '',
     lastName: '',
     phone: 0,
@@ -130,13 +125,12 @@ export const INITIAL_PARENT: Adult = {
     address: '',
     type: AdultType.PARENT,
     userId: '',
-    created: '',
-    updated: '',
+    ...INITIAL_METADATA,
 }
 
 export const INITIAL_USER: User = {
-    id: null,
     email: '',
+    password: '',
     username: '',
     avatar: null,
     blurhash: null,
@@ -148,41 +142,43 @@ export const INITIAL_USER: User = {
     ipcams: [],
     children: [],
     adults: [],
+
     votedChoices: [],
     writtenPosts: [],
     bookmarkedPosts: [],
     likedPosts: [],
-    created: '',
-    updated: '',
-    password: '',
+
     expand: {
         groups: [],
         ipcams: [],
         children: [],
         adults: [],
     },
+    ...INITIAL_METADATA,
 }
 
 export const generateAdult = (): Adult => {
     return {
         ...INITIAL_PARENT,
-        id: null,
+        ...INITIAL_METADATA,
     }
 }
 
 export const generateChild = (): Child => {
     return {
         ...INITIAL_CHILD,
-        id: null,
+        ...INITIAL_METADATA,
     }
 }
 
 export const generateUser = (): User => {
+    const generateAdults = [generateAdult(), generateAdult()]
     return {
         ...INITIAL_USER,
         children: [],
+        adults: generateAdults.map((adult) => adult.id),
         expand: {
-            adults: [generateAdult(), generateAdult()],
+            adults: generateAdults,
             groups: [],
             ipcams: [],
             children: [],

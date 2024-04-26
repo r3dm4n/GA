@@ -10,7 +10,6 @@ export enum PostType {
 }
 
 export interface Post extends Metadata {
-    id: string | null
     type: PostType
     body: string
     numberOfLikes: number
@@ -45,7 +44,9 @@ export interface Tag {
 }
 
 export const INITIAL_POST: Post = {
-    id: null,
+    id: '',
+    collectionId: '',
+    collectionName: '',
     type: PostType.POST,
     body: '',
     reviewed: false,

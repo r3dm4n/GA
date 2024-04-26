@@ -1,21 +1,20 @@
-export interface Thumbnail {
-    id: string
+import { Metadata } from './metadata'
+
+export interface Thumbnail extends Metadata {
     url: string
     blurhash: string
     favorite: boolean
     videoId: string
 }
 
-export interface Video {
-    id: string
+export interface Video extends Metadata {
     attachmentId: string
     optimized: string
     original: string
     thumbnails: Thumbnail[]
 }
 
-export interface Attachment {
-    id: string
+export interface Attachment extends Metadata {
     postId: string
     fileName: string
     imageUrl: string

@@ -1,12 +1,11 @@
 import { Group } from './group'
 import { Plate } from './menu'
-import { Metadata } from './metadata'
+import { INITIAL_METADATA, Metadata } from './metadata'
 import { Tax } from './tax'
 import { Child } from './user'
 import { WorkingDays } from './working-days'
 
 export interface Presence extends Metadata {
-    id: string | null
     childId: string
     child?: Child
     date: string
@@ -19,7 +18,6 @@ export interface Presence extends Metadata {
 }
 
 export const INITIAL_PRESENCE: Presence = {
-    id: null,
     childId: '',
     isPresent: false,
     sleep: 0,
@@ -45,8 +43,7 @@ export const INITIAL_PRESENCE: Presence = {
     ],
     date: new Date().toISOString().slice(0, 10),
     groupId: 'PUBLIC',
-    created: '',
-    updated: '',
+    ...INITIAL_METADATA,
 }
 
 export interface ChildPresenceReport {
